@@ -18,8 +18,7 @@ public class Hero : MonoBehaviour
         if (_direction != Vector2.zero)
         {
             var delta = _direction * (_speed * Time.deltaTime);
-            var newPosition = (Vector2)transform.position + delta;
-            transform.position = new Vector3(newPosition.x, newPosition.y, transform.position.z);
+            transform.position += new Vector3(delta.x, delta.y, 0);
         } 
     }
 
