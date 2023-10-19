@@ -6,8 +6,11 @@ using UnityEngine;
 
 public class Hero : MonoBehaviour
 {
-    [SerializeField] public float _speed;
+    public float _speed;
+    public float _jumpForce;
 
+    [SerializeField] private LayerCheck _groundCheck;
+    
     private Rigidbody2D _rigidbody;
     private Vector2 _direction;
 
@@ -24,17 +27,19 @@ public class Hero : MonoBehaviour
     private void FixedUpdate()
     {
         _rigidbody.velocity = new Vector2(_direction.x * _speed, _rigidbody.velocity.y);
+
+        var isJumping = _direction.y > 0;
+        if (isJumping && IsGrounded())
+        {
+            _rigidbody.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+        }
     }
 
-    /* private void Update()
+    private bool IsGrounded()
     {
-        if (_direction != Vector2.zero)
-        {
-            var delta = _direction * (_speed * Time.deltaTime);
-            transform.position += new Vector3(delta.x, delta.y, 0);
-        } 
+        return _groundCheck.IsTouchingLayer;
     }
-*/
+
     public void SaySomething()
     {
         Debug.Log("Something!");
