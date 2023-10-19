@@ -52,19 +52,18 @@ namespace Tests
             //Debug.Log("Correct player jump force");
 
             
-            //это хуевый тест (рефлексия)
+            //это плохо
             var hero = playerGameObject.GetComponent<Hero>();
-            var type = hero.GetType();
-            var fieldInfoJump = type.GetField("_jumpForce", BindingFlags.NonPublic | BindingFlags.Instance);
-            var jumpForce = (float) fieldInfoJump.GetValue(hero);
+            var jumpForce = ReflectionHelper.GetPrivateFieldValue<float>(hero, "_jumpForce");
             Assert.That(jumpForce == 10,"Player jump force not equals 10");
             Debug.Log("Correct player jump force");
             
-            //это хуевый тест х2
-            var fieldInfoSpeed = type.GetField("_speed", BindingFlags.NonPublic | BindingFlags.Instance);
-            var speed = (float)fieldInfoSpeed.GetValue(hero);
+            //это плохо х2
+            var speed = ReflectionHelper.GetPrivateFieldValue<float>(hero, "_speed");
             Assert.That(speed == 3,"Player speed not equals 3");
             Debug.Log("Correct player speed");
+            
+            
         }
     }
 }
