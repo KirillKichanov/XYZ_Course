@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -40,13 +41,30 @@ namespace Tests
             Assert.That(playerInputSystem, Is.Not.Null, "Input System is not connected");
             Debug.Log("Input System connected");
 
-            var playerSpeed = playerGameObject.GetComponent<Hero>()._speed;
-            Assert.That(playerSpeed == 3,"Player speed not equals 3");
-            Debug.Log("Correct player speed");
+            //это нормальный тест
+            //var playerSpeed = playerGameObject.GetComponent<Hero>()._speed;
+            //Assert.That(playerSpeed == 3,"Player speed not equals 3");
+            //Debug.Log("Correct player speed");
             
-            var playerJumpForce = playerGameObject.GetComponent<Hero>()._jumpForce;
-            Assert.That(playerJumpForce == 3,"Player jump force not equals 3");
+            //это нормальный тест
+            //var playerJumpForce = playerGameObject.GetComponent<Hero>()._jumpForce;
+            //Assert.That(playerJumpForce == 3,"Player jump force not equals 3");
+            //Debug.Log("Correct player jump force");
+
+            
+            //это хуевый тест (рефлексия)
+            var hero = playerGameObject.GetComponent<Hero>();
+            var type = hero.GetType();
+            var fieldInfoJump = type.GetField("_jumpForce", BindingFlags.NonPublic | BindingFlags.Instance);
+            var jumpForce = (float) fieldInfoJump.GetValue(hero);
+            Assert.That(jumpForce == 10,"Player jump force not equals 10");
             Debug.Log("Correct player jump force");
+            
+            //это хуевый тест х2
+            var fieldInfoSpeed = type.GetField("_speed", BindingFlags.NonPublic | BindingFlags.Instance);
+            var speed = (float)fieldInfoSpeed.GetValue(hero);
+            Assert.That(speed == 3,"Player speed not equals 3");
+            Debug.Log("Correct player speed");
         }
     }
 }

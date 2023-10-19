@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class Hero : MonoBehaviour
 {
-    public float _speed;
-    public float _jumpForce;
+    [SerializeField] private float _speed;
+    [SerializeField] private float _jumpForce;
 
     [SerializeField] private LayerCheck _groundCheck;
     
