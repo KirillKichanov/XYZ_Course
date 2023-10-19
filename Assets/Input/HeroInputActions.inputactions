@@ -50,7 +50,7 @@
                 {
                     "name": "Up",
                     "id": "e10d2b92-202b-430e-81f1-be6f907639b5",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
