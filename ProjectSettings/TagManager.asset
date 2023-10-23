@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Props
+  - Silver
+  - Gold
   layers:
   - Default
   - TransparentFX
@@ -41,13 +43,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: LayerBG1
-    uniqueID: 220868725
-    locked: 0
-  - name: LayerBG2
-    uniqueID: 1702010789
-    locked: 0
-  - name: LayerProps1
-    uniqueID: 3874343917
     locked: 0
