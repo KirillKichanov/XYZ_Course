@@ -14,12 +14,12 @@ namespace Scripts.Components
             if (other.CompareTag("Silver"))
             {
                 _wallet += 1;
-                Destroy(other.gameObject);
+                other.GetComponent<DestroyObjectComponent>().Collect();
                 Debug.Log($"You have {_wallet} coins!");
             } else if (other.CompareTag("Gold"))
             {
                 _wallet += 10;
-                Destroy(other.gameObject);
+                other.GetComponent<DestroyObjectComponent>().Collect();
                 Debug.Log($"You have {_wallet} coins!");
             }
         }
