@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Reflection;
 using NUnit.Framework;
+using Scripts.Components;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.HID;
 using UnityEngine.TestTools;
 
 namespace Tests
@@ -13,7 +15,7 @@ namespace Tests
         [Test]
         public void HeroInitializationTestSimplePasses()
         {
-            var playerGameObject = GameObject.Find("Hero_0");
+            var playerGameObject = GameObject.Find("Hero");
             Assert.That(playerGameObject, Is.Not.Null, "There is no Hero on scene");
             Debug.Log("Hero on scene");
             
@@ -40,30 +42,28 @@ namespace Tests
             var playerInputSystem = playerGameObject.GetComponent<PlayerInput>();
             Assert.That(playerInputSystem, Is.Not.Null, "Input System is not connected");
             Debug.Log("Input System connected");
-
-            //это нормальный тест
-            //var playerSpeed = playerGameObject.GetComponent<Hero>()._speed;
-            //Assert.That(playerSpeed == 3,"Player speed not equals 3");
-            //Debug.Log("Correct player speed");
             
-            //это нормальный тест
-            //var playerJumpForce = playerGameObject.GetComponent<Hero>()._jumpForce;
-            //Assert.That(playerJumpForce == 3,"Player jump force not equals 3");
-            //Debug.Log("Correct player jump force");
-
-            
-            //это плохо
             var hero = playerGameObject.GetComponent<Hero>();
             var jumpForce = ReflectionHelper.GetPrivateFieldValue<float>(hero, "_jumpForce");
             Assert.That(jumpForce == 10,"Player jump force not equals 10");
             Debug.Log("Correct player jump force");
             
-            //это плохо х2
             var speed = ReflectionHelper.GetPrivateFieldValue<float>(hero, "_speed");
             Assert.That(speed == 3,"Player speed not equals 3");
             Debug.Log("Correct player speed");
+
+            var collectCoins = playerGameObject.GetComponent<CollectCoinsComponent>();
+            Assert.That(collectCoins, Is.Not.Null, "CollectCoinsComponent not connected");
+            Debug.Log("CollectCoinsComponent connected");
             
-            
+            var wallet = playerGameObject.GetComponent<CollectCoinsComponent>()._wallet;
+            Assert.That(wallet == 0, "Wrong coin balance");
+            Debug.Log("Correct wallet balance");
+
+            var animator = playerGameObject.GetComponent<Animator>();
+            Assert.That(animator, Is.Not.Null, "No Animator component");
+            Debug.Log("Animator component connected");
+
         }
     }
 }

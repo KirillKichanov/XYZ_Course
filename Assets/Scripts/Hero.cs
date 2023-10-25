@@ -8,6 +8,7 @@ public class Hero : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpForce;
+    private int _coins;
 
     [SerializeField] private LayerCheck _groundCheck;
     
@@ -75,5 +76,11 @@ public class Hero : MonoBehaviour
     public void SaySomething()
     {
         Debug.Log("Something!");
+    }
+
+    public void CoinCollect(int Amount)
+    {
+        _coins += Amount;
+        Debug.Log(_coins);
     }
 }
