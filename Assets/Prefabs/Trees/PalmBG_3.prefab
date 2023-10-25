@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 998272079416337938}
   - component: {fileID: 998272079416337939}
   m_Layer: 0
-  m_Name: PalmTreeBackgroundSheet_8
+  m_Name: PalmBG_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 998272079416337937}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 17.68, y: -0.413, z: 10}
   m_LocalScale: {x: 1, y: 0.6666667, z: 1}
   m_Children: []
@@ -96,12 +96,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _frameRate: 10
-  _loop: 1
-  _sprites:
-  - {fileID: -6024505487453159095, guid: 3871e1cd49f2b564eb690cae64e823b0, type: 3}
-  - {fileID: 3531074664856275464, guid: 3871e1cd49f2b564eb690cae64e823b0, type: 3}
-  - {fileID: 802857254159732353, guid: 3871e1cd49f2b564eb690cae64e823b0, type: 3}
-  - {fileID: 1278475588773109743, guid: 3871e1cd49f2b564eb690cae64e823b0, type: 3}
-  _onComplete:
-    m_PersistentCalls:
-      m_Calls: []
+  _clips:
+  - _name: 
+    _loop: 1
+    sprites:
+    - {fileID: -6024505487453159095, guid: 3871e1cd49f2b564eb690cae64e823b0, type: 3}
+    - {fileID: 3531074664856275464, guid: 3871e1cd49f2b564eb690cae64e823b0, type: 3}
+    - {fileID: 802857254159732353, guid: 3871e1cd49f2b564eb690cae64e823b0, type: 3}
+    - {fileID: 1278475588773109743, guid: 3871e1cd49f2b564eb690cae64e823b0, type: 3}
+    _allowNextClip: 0
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls: []

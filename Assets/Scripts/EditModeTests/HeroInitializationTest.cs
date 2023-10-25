@@ -52,14 +52,6 @@ namespace Tests
             Assert.That(speed == 3,"Player speed not equals 3");
             Debug.Log("Correct player speed");
 
-            var collectCoins = playerGameObject.GetComponent<CollectCoinsComponent>();
-            Assert.That(collectCoins, Is.Not.Null, "CollectCoinsComponent not connected");
-            Debug.Log("CollectCoinsComponent connected");
-            
-            var wallet = playerGameObject.GetComponent<CollectCoinsComponent>()._wallet;
-            Assert.That(wallet == 0, "Wrong coin balance");
-            Debug.Log("Correct wallet balance");
-
             var animator = playerGameObject.GetComponent<Animator>();
             Assert.That(animator, Is.Not.Null, "No Animator component");
             Debug.Log("Animator component connected");

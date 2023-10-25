@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2082934017027125534}
   - component: {fileID: 2082934017027125535}
   m_Layer: 0
-  m_Name: PalmTreeBackgroundSheet_0
+  m_Name: PalmBG_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082934017027125505}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.75, y: 0.41575265, z: 0}
   m_LocalScale: {x: 1, y: 0.6666667, z: 1}
   m_Children: []
@@ -96,12 +96,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _frameRate: 10
-  _loop: 1
-  _sprites:
-  - {fileID: 8683632313750085214, guid: 3871e1cd49f2b564eb690cae64e823b0, type: 3}
-  - {fileID: 262518517033693272, guid: 3871e1cd49f2b564eb690cae64e823b0, type: 3}
-  - {fileID: 762285979657935423, guid: 3871e1cd49f2b564eb690cae64e823b0, type: 3}
-  - {fileID: 1400697303485121525, guid: 3871e1cd49f2b564eb690cae64e823b0, type: 3}
-  _onComplete:
-    m_PersistentCalls:
-      m_Calls: []
+  _clips:
+  - _name: LeafsShake
+    _loop: 1
+    sprites:
+    - {fileID: 8683632313750085214, guid: 3871e1cd49f2b564eb690cae64e823b0, type: 3}
+    - {fileID: 262518517033693272, guid: 3871e1cd49f2b564eb690cae64e823b0, type: 3}
+    - {fileID: 762285979657935423, guid: 3871e1cd49f2b564eb690cae64e823b0, type: 3}
+    - {fileID: 1400697303485121525, guid: 3871e1cd49f2b564eb690cae64e823b0, type: 3}
+    _allowNextClip: 0
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls: []
