@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmBG_2
       objectReference: {fileID: 0}
+    - target: {fileID: 2969795312751028704, guid: 0b8ddfe8642488d4d8b84a40ef759560,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2969795312751028705, guid: 0b8ddfe8642488d4d8b84a40ef759560,
         type: 3}
       propertyPath: m_RootOrder
@@ -350,6 +355,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterReflectLarge (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 2127497677907062187, guid: b57cdeba4d0c05d4fbe3e93dfcc92d44,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b57cdeba4d0c05d4fbe3e93dfcc92d44, type: 3}
 --- !u!4 &151290108 stripped
@@ -365,6 +375,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 874665601}
     m_Modifications:
+    - target: {fileID: 7845725576324400, guid: 65bb830d82e489146a2e2909fbc868a3, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 537192549}
+    - target: {fileID: 7845725576324400, guid: 65bb830d82e489146a2e2909fbc868a3, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: CoinCollect
+      objectReference: {fileID: 0}
     - target: {fileID: 8659805156670625656, guid: 65bb830d82e489146a2e2909fbc868a3,
         type: 3}
       propertyPath: m_Name
@@ -499,6 +517,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PalmBG_3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 998272079416337937, guid: ba1cdb44b9d98564fa890a43d04e2f1c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba1cdb44b9d98564fa890a43d04e2f1c, type: 3}
@@ -1793,6 +1816,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmBG_1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2082934017027125505, guid: eac6b0a3cdc27b442b4fec1aedce9f92,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eac6b0a3cdc27b442b4fec1aedce9f92, type: 3}
 --- !u!4 &264064822 stripped
@@ -1812,6 +1840,10 @@ PrefabInstance:
       propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 537192549}
+    - target: {fileID: 7845725576324400, guid: 65bb830d82e489146a2e2909fbc868a3, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: CoinCollect
+      objectReference: {fileID: 0}
     - target: {fileID: 8659805156670625656, guid: 65bb830d82e489146a2e2909fbc868a3,
         type: 3}
       propertyPath: m_Name
@@ -1825,7 +1857,7 @@ PrefabInstance:
     - target: {fileID: 8659805156670625661, guid: 65bb830d82e489146a2e2909fbc868a3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.92
+      value: -2.98
       objectReference: {fileID: 0}
     - target: {fileID: 8659805156670625661, guid: 65bb830d82e489146a2e2909fbc868a3,
         type: 3}
@@ -1946,6 +1978,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PalmBG_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2082934017027125505, guid: eac6b0a3cdc27b442b4fec1aedce9f92,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eac6b0a3cdc27b442b4fec1aedce9f92, type: 3}
@@ -2102,6 +2139,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PalmBG_1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2082934017027125505, guid: eac6b0a3cdc27b442b4fec1aedce9f92,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eac6b0a3cdc27b442b4fec1aedce9f92, type: 3}
@@ -2484,6 +2526,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterReflectLarge (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2127497677907062187, guid: b57cdeba4d0c05d4fbe3e93dfcc92d44,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b57cdeba4d0c05d4fbe3e93dfcc92d44, type: 3}
 --- !u!4 &623827106 stripped
@@ -2640,6 +2687,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PalmBG_3
       objectReference: {fileID: 0}
+    - target: {fileID: 998272079416337937, guid: ba1cdb44b9d98564fa890a43d04e2f1c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba1cdb44b9d98564fa890a43d04e2f1c, type: 3}
 --- !u!4 &727605082 stripped
@@ -2655,6 +2707,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 799134908}
     m_Modifications:
+    - target: {fileID: 3181459810858274893, guid: 2fa7c84fb60eff649991a6bf96af2679,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 537192549}
+    - target: {fileID: 3181459810858274893, guid: 2fa7c84fb60eff649991a6bf96af2679,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: CoinCollect
+      objectReference: {fileID: 0}
     - target: {fileID: 4415234277601011098, guid: 2fa7c84fb60eff649991a6bf96af2679,
         type: 3}
       propertyPath: m_RootOrder
@@ -2663,7 +2725,7 @@ PrefabInstance:
     - target: {fileID: 4415234277601011098, guid: 2fa7c84fb60eff649991a6bf96af2679,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.58
+      value: 4.45
       objectReference: {fileID: 0}
     - target: {fileID: 4415234277601011098, guid: 2fa7c84fb60eff649991a6bf96af2679,
         type: 3}
@@ -2762,6 +2824,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 874665601}
     m_Modifications:
+    - target: {fileID: 7845725576324400, guid: 65bb830d82e489146a2e2909fbc868a3, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 537192549}
+    - target: {fileID: 7845725576324400, guid: 65bb830d82e489146a2e2909fbc868a3, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: CoinCollect
+      objectReference: {fileID: 0}
     - target: {fileID: 8659805156670625656, guid: 65bb830d82e489146a2e2909fbc868a3,
         type: 3}
       propertyPath: m_Name
@@ -2978,6 +3048,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterReflectLarge (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2127497677907062187, guid: b57cdeba4d0c05d4fbe3e93dfcc92d44,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b57cdeba4d0c05d4fbe3e93dfcc92d44, type: 3}
 --- !u!4 &842303007 stripped
@@ -3052,6 +3127,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WaterReflectLarge (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2127497677907062187, guid: b57cdeba4d0c05d4fbe3e93dfcc92d44,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b57cdeba4d0c05d4fbe3e93dfcc92d44, type: 3}
@@ -3429,6 +3509,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 799134908}
     m_Modifications:
+    - target: {fileID: 3181459810858274893, guid: 2fa7c84fb60eff649991a6bf96af2679,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 537192549}
+    - target: {fileID: 3181459810858274893, guid: 2fa7c84fb60eff649991a6bf96af2679,
+        type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: CoinCollect
+      objectReference: {fileID: 0}
     - target: {fileID: 4415234277601011098, guid: 2fa7c84fb60eff649991a6bf96af2679,
         type: 3}
       propertyPath: m_RootOrder
@@ -3774,6 +3864,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 874665601}
     m_Modifications:
+    - target: {fileID: 7845725576324400, guid: 65bb830d82e489146a2e2909fbc868a3, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 537192549}
+    - target: {fileID: 7845725576324400, guid: 65bb830d82e489146a2e2909fbc868a3, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: CoinCollect
+      objectReference: {fileID: 0}
     - target: {fileID: 8659805156670625656, guid: 65bb830d82e489146a2e2909fbc868a3,
         type: 3}
       propertyPath: m_Name
@@ -3930,6 +4028,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 874665601}
     m_Modifications:
+    - target: {fileID: 7845725576324400, guid: 65bb830d82e489146a2e2909fbc868a3, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 537192549}
+    - target: {fileID: 7845725576324400, guid: 65bb830d82e489146a2e2909fbc868a3, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: CoinCollect
+      objectReference: {fileID: 0}
     - target: {fileID: 8659805156670625656, guid: 65bb830d82e489146a2e2909fbc868a3,
         type: 3}
       propertyPath: m_Name
@@ -4005,6 +4111,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 874665601}
     m_Modifications:
+    - target: {fileID: 7845725576324400, guid: 65bb830d82e489146a2e2909fbc868a3, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 537192549}
+    - target: {fileID: 7845725576324400, guid: 65bb830d82e489146a2e2909fbc868a3, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: CoinCollect
+      objectReference: {fileID: 0}
     - target: {fileID: 8659805156670625656, guid: 65bb830d82e489146a2e2909fbc868a3,
         type: 3}
       propertyPath: m_Name
@@ -4140,6 +4254,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterReflectLarge (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2127497677907062187, guid: b57cdeba4d0c05d4fbe3e93dfcc92d44,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b57cdeba4d0c05d4fbe3e93dfcc92d44, type: 3}
 --- !u!4 &1826880069 stripped
@@ -4155,6 +4274,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 874665601}
     m_Modifications:
+    - target: {fileID: 7845725576324400, guid: 65bb830d82e489146a2e2909fbc868a3, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 537192549}
+    - target: {fileID: 7845725576324400, guid: 65bb830d82e489146a2e2909fbc868a3, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: CoinCollect
+      objectReference: {fileID: 0}
     - target: {fileID: 8659805156670625656, guid: 65bb830d82e489146a2e2909fbc868a3,
         type: 3}
       propertyPath: m_Name
@@ -4446,6 +4573,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterReflectLarge (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 2127497677907062187, guid: b57cdeba4d0c05d4fbe3e93dfcc92d44,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b57cdeba4d0c05d4fbe3e93dfcc92d44, type: 3}
 --- !u!4 &2007989843 stripped
@@ -4464,6 +4596,11 @@ PrefabInstance:
     - target: {fileID: 9016153909220099040, guid: a06303fba0901014f8d422ec71a9f07d,
         type: 3}
       propertyPath: _wallet
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9016153909220099044, guid: a06303fba0901014f8d422ec71a9f07d,
+        type: 3}
+      propertyPath: _coins
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9016153909220099046, guid: a06303fba0901014f8d422ec71a9f07d,
@@ -4615,6 +4752,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WaterReflectLarge (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2127497677907062187, guid: b57cdeba4d0c05d4fbe3e93dfcc92d44,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b57cdeba4d0c05d4fbe3e93dfcc92d44, type: 3}
@@ -4772,6 +4914,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterReflectLarge
       objectReference: {fileID: 0}
+    - target: {fileID: 2127497677907062187, guid: b57cdeba4d0c05d4fbe3e93dfcc92d44,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b57cdeba4d0c05d4fbe3e93dfcc92d44, type: 3}
 --- !u!4 &2121443847 stripped
@@ -4847,5 +4994,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: KillZone
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8526495494348674638, guid: 0db1c67e5e6bd934cb0f7ccb7c5faead, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0db1c67e5e6bd934cb0f7ccb7c5faead, type: 3}

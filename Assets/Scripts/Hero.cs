@@ -8,7 +8,7 @@ public class Hero : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpForce;
-    private int _coins;
+    [SerializeField] private int _coins;
 
     [SerializeField] private LayerCheck _groundCheck;
     
@@ -26,6 +26,11 @@ public class Hero : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _sprite = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
+        _coins = 0;
     }
 
     public void SetDirection(Vector2 direction)
