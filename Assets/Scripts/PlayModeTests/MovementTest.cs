@@ -3,28 +3,55 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Tests
 {
-    public class MovementTest
+    public class MovementTest : InputTestFixture
     {
-        [SerializeField] private GameObject player;
-        
-        [SetUp]
-        public void SetUp()
+        public override void Setup()
         {
-            
+            base.Setup();
+            SceneManager.LoadScene(0);
         }
 
-        [Test]
-        public void TestPlayerMovement()
+        [UnityTest]
+        public IEnumerator TestPlayerMovement()
         {
+            var player = GameObject.Find("Hero");
+            var startPosition = player.transform.position.x;
+            
+            //move left test
+            var keyboard = InputSystem.AddDevice<Keyboard>();
+            Press(keyboard.aKey);
+            yield return new WaitForSeconds(1);
+            
+            Release(keyboard.aKey);
+            var newPosition = player.transform.position.x;
+            
+            Assert.That(startPosition > newPosition, "Player can't move left!");
+            Debug.Log("Player move left successful!");
+
+            yield return new WaitForSeconds(1);
+            
+            //move right test
+            startPosition = player.transform.position.x;
+            Press(keyboard.dKey);
+            yield return new WaitForSeconds(1);
+            
+            Release(keyboard.dKey);
+            newPosition = player.transform.position.x;
+            
+            Assert.That(startPosition < newPosition, "Player can't move right!");
+            Debug.Log("Player move right successful!");
+            
         }
         
-        [UnityTest]
-        public IEnumerator MovementTestWithEnumeratorPasses()
+        //нужно для очистки сцены, если что-то создавалось во время теста
+        public override void TearDown()
         {
-            yield return null;
+            base.TearDown();
         }
     }
 }
