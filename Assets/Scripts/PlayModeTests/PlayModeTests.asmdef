@@ -5,7 +5,9 @@
         "UnityEditor.TestRunner",
         "Unity.InputSystem",
         "Unity.InputSystem.TestFramework",
-        "Unity.InputSystem.IntegrationTests"
+        "Unity.InputSystem.IntegrationTests",
+        "ScriptsCore",
+        "EditModeTests"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -188,7 +188,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 9016153909220099044, guid: a06303fba0901014f8d422ec71a9f07d,
+          type: 3}
         m_MethodName: CoinCollect
         m_Mode: 3
         m_Arguments:
