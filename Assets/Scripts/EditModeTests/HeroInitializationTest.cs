@@ -48,7 +48,7 @@ namespace Tests
             Assert.That(jumpForce == 10,"Player jump force not equals 10");
             Debug.Log("Correct player jump force");
             
-            var speed = ReflectionHelper.GetPrivateFieldValue<float>(hero, "_speed");
+            var speed = hero.Speed;
             Assert.That(speed == 3,"Player speed not equals 3");
             Debug.Log("Correct player speed");
 
