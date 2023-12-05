@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 namespace Tests
 {
-    public class DamageTest: InputTestFixture
+    public class HealingTest: InputTestFixture
     {
         public override void Setup()
         {
@@ -17,33 +17,35 @@ namespace Tests
             SceneManager.LoadScene(0);
         }
         
-
         [UnityTest]
-        public IEnumerator DamageTestWithEnumeratorPasses()
+        public IEnumerator HealingTestWithEnumeratorPasses()
         {
             var player = GameObject.Find("Hero");
             var heroComponent = player.GetComponent<Hero>();
             var healthComponent = player.GetComponent<HealthComponent>();
             var startHealth = healthComponent.health;
-            var spikes = GameObject.Find("Spikes (1)").transform.position;
+            var potion = GameObject.Find("HealingPotion").transform.position;
             
             yield return new WaitForSeconds(1);
-
-            healthComponent.ApplyDamage(1);
+            
+            healthComponent.ApplyDamage(6);
             heroComponent.TakeDamage();
-            var firstDamage = healthComponent.health;
-            Assert.That(startHealth > firstDamage, "Player can't take damage!");
-            Debug.Log("Player takes first damage successfully");
+            var damagedHealth = healthComponent.health;
+            healthComponent.ApplyHeal(1);
+            var firstHeal = healthComponent.health;
+
+            Assert.That(firstHeal > damagedHealth, "Player can't heal!");
+            Debug.Log("Player's first heal successful!");
             
             yield return new WaitForSeconds(1);
-
-            player.transform.position = spikes;
+            
+            player.transform.position = potion;
             
             yield return new WaitForSeconds(1);
-
-            var secondDamage = healthComponent.health;
-            Assert.That(firstDamage > secondDamage, "Player can't take damage by spikes!");
-            Debug.Log("Player takes second damage successfully");
+            
+            var secondHeal = healthComponent.health;
+            Assert.That(startHealth == secondHeal, "Player can't heal by potion!");
+            Debug.Log("Player's second heal successful!");
 
             yield return null;
         }
