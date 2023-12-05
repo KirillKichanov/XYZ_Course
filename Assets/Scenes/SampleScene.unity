@@ -3485,7 +3485,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49.21, y: 1.52, z: -10}
+  m_LocalPosition: {x: 2.1399999, y: 0.36, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6258,7 +6258,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418551505}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49.21, y: 1.52, z: -10}
+  m_LocalPosition: {x: 2.1399999, y: 0.36, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 136501806}
@@ -6866,62 +6866,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1729400216}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1736668811 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3147366104554287444, guid: 852d2a0509bbf124ebf2bb8a181bb62c,
-    type: 3}
-  m_PrefabInstance: {fileID: 7947522535687226758}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1736668812 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1736668812, guid: 852d2a0509bbf124ebf2bb8a181bb62c,
-    type: 3}
-  m_PrefabInstance: {fileID: 7947522535687226758}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1736668811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc6b112a25d28ad42a8749473f75974d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1736668813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1736668811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0387ef640f4bca4491580558a5453cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tag: Player
-  _action:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1736668812}
-        m_MethodName: ApplyHeal
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1993716015}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1736668811}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!4 &1736668814 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5637177436334606193, guid: 852d2a0509bbf124ebf2bb8a181bb62c,
@@ -7941,12 +7885,12 @@ PrefabInstance:
     - target: {fileID: 9016153909220099066, guid: a06303fba0901014f8d422ec71a9f07d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 48.71
+      value: 1.64
       objectReference: {fileID: 0}
     - target: {fileID: 9016153909220099066, guid: a06303fba0901014f8d422ec71a9f07d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.52
+      value: -0.64
       objectReference: {fileID: 0}
     - target: {fileID: 9016153909220099066, guid: a06303fba0901014f8d422ec71a9f07d,
         type: 3}
@@ -8388,6 +8332,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 818909464}
     m_Modifications:
+    - target: {fileID: 1736668813, guid: 852d2a0509bbf124ebf2bb8a181bb62c, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 1993716015}
     - target: {fileID: 3147366104554287444, guid: 852d2a0509bbf124ebf2bb8a181bb62c,
         type: 3}
       propertyPath: m_Name

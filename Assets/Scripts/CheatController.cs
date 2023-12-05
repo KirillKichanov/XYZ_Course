@@ -14,12 +14,18 @@ public class CheatController : MonoBehaviour
     private float _inputTime;
     private void Awake()
     {
-        Keyboard.current.onTextInput += OnTextInput;
+        if (Keyboard.current != null)
+        {
+            Keyboard.current.onTextInput += OnTextInput;
+        }
     }
 
     private void OnDestroy()
     {
-        Keyboard.current.onTextInput -= OnTextInput;
+        if (Keyboard.current != null)
+        {
+            Keyboard.current.onTextInput -= OnTextInput;
+        }
     }
 
     private void OnTextInput(char inputChar)

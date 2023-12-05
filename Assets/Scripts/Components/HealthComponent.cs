@@ -13,6 +13,9 @@ namespace Scripts.Components
         [SerializeField] private UnityEvent _onHeal;
         [SerializeField] private UnityEvent _onDie;
 
+        public int health => _health;
+        public int maxHealth => _maxHealth;
+
         public void ApplyDamage(int damageValue)
         {
             _health -= damageValue;
