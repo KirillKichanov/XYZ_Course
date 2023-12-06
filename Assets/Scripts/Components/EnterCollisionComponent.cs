@@ -18,6 +18,14 @@ namespace Scripts.Components
                 _action?.Invoke(other.gameObject);
             }
         }
+        
+        private void OnCollisionStay2D(Collision2D other)
+        {
+            if (other.gameObject.CompareTag(_tag))
+            {
+                _action?.Invoke(other.gameObject);
+            }
+        }
     }
 
     [Serializable]

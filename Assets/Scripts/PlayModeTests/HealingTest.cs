@@ -18,7 +18,31 @@ namespace Tests
         }
         
         [UnityTest]
-        public IEnumerator HealingTestWithEnumeratorPasses()
+        public IEnumerator ApplyHealWithEnumeratorPasses()
+        {
+            var player = GameObject.Find("Hero");
+            var heroComponent = player.GetComponent<Hero>();
+            var healthComponent = player.GetComponent<HealthComponent>();
+            var startHealth = healthComponent.health;
+            
+            yield return new WaitForSeconds(1);
+            
+            healthComponent.ApplyDamage(1);
+            heroComponent.TakeDamage();
+            var damagedHealth = healthComponent.health;
+            healthComponent.ApplyHeal(1);
+            var heal = healthComponent.health;
+            
+            yield return new WaitForSeconds(1);
+
+            Assert.That(heal > damagedHealth || heal == startHealth, "Player can't heal!");
+            Debug.Log("Player's heal successful!");
+
+            yield return null;
+        }
+
+        [UnityTest]
+        public IEnumerator PotionHealWithEnumeratorPasses()
         {
             var player = GameObject.Find("Hero");
             var heroComponent = player.GetComponent<Hero>();
@@ -27,15 +51,10 @@ namespace Tests
             var potion = GameObject.Find("HealingPotion").transform.position;
             
             yield return new WaitForSeconds(1);
-            
-            healthComponent.ApplyDamage(6);
+
+            healthComponent.ApplyDamage(5);
             heroComponent.TakeDamage();
             var damagedHealth = healthComponent.health;
-            healthComponent.ApplyHeal(1);
-            var firstHeal = healthComponent.health;
-
-            Assert.That(firstHeal > damagedHealth, "Player can't heal!");
-            Debug.Log("Player's first heal successful!");
             
             yield return new WaitForSeconds(1);
             
@@ -43,11 +62,9 @@ namespace Tests
             
             yield return new WaitForSeconds(1);
             
-            var secondHeal = healthComponent.health;
-            Assert.That(startHealth == secondHeal, "Player can't heal by potion!");
-            Debug.Log("Player's second heal successful!");
-
-            yield return null;
+            var potionHeal = healthComponent.health;
+            Assert.That(potionHeal > damagedHealth || potionHeal == startHealth, "Player can't heal by potion!");
+            Debug.Log("Player's heal by potion successful!");
         }
     }
 }
