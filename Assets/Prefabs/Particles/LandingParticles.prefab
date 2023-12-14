@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3532990643143170026
+--- !u!1 &4615787848076337411
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 504682834721119905}
-  - component: {fileID: 5677666058721320512}
-  - component: {fileID: 5677666058721320511}
-  - component: {fileID: 1888533518395003419}
+  - component: {fileID: 1101970798483650402}
+  - component: {fileID: 6500570142111462126}
+  - component: {fileID: -535737202670908280}
+  - component: {fileID: -8990845156957514354}
   m_Layer: 0
-  m_Name: FootSteps
+  m_Name: LandingParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &504682834721119905
+--- !u!4 &1101970798483650402
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3532990643143170026}
+  m_GameObject: {fileID: 4615787848076337411}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9645224, y: 1.0364947, z: -13.014648}
+  m_LocalPosition: {x: 1.3948418, y: -0.70761305, z: -1.4887085}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5677666058721320512
+--- !u!212 &6500570142111462126
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3532990643143170026}
+  m_GameObject: {fileID: 4615787848076337411}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 7b251b17cbb848b4c88858d9cbcbc5e4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 220499d57fdf4104c95a7271f8c8a196, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -83,13 +83,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5677666058721320511
+--- !u!114 &-535737202670908280
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3532990643143170026}
+  m_GameObject: {fileID: 4615787848076337411}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 493cae126cbee85449bead3a5bc2d5b2, type: 3}
@@ -97,19 +97,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _frameRate: 10
   _clips:
-  - _name: run
+  - _name: Landing
     _loop: 0
     sprites:
-    - {fileID: 21300000, guid: 7b251b17cbb848b4c88858d9cbcbc5e4, type: 3}
-    - {fileID: 21300000, guid: eb72181070f38014cbab1f2b87dbe945, type: 3}
-    - {fileID: 21300000, guid: a3cb733c5bef2aa4fab02a274bcb4eec, type: 3}
-    - {fileID: 21300000, guid: dc1436dc31c0a6e41881e9446865a7d7, type: 3}
-    - {fileID: 21300000, guid: 87fb98e7d814a3b43bdcf56587429667, type: 3}
+    - {fileID: 21300000, guid: 220499d57fdf4104c95a7271f8c8a196, type: 3}
+    - {fileID: 21300000, guid: 4ff6a43c7ed33294d9485503674e2708, type: 3}
+    - {fileID: 21300000, guid: 9c1bdae06bf53f84f87a39df79572977, type: 3}
     _allowNextClip: 0
     _onComplete:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1888533518395003419}
+        - m_Target: {fileID: -8990845156957514354}
           m_MethodName: Destroy
           m_Mode: 1
           m_Arguments:
@@ -120,13 +118,13 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1888533518395003419
+--- !u!114 &-8990845156957514354
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3532990643143170026}
+  m_GameObject: {fileID: 4615787848076337411}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f978e3409fae084a8e19c5df45b6895, type: 3}

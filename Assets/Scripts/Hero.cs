@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using Scripts.Components;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Hero : MonoBehaviour
 {
@@ -17,15 +18,21 @@ public class Hero : MonoBehaviour
     [SerializeField] private int _coins;
 
     [SerializeField] private LayerCheck _groundCheck;
-    
+
+    [SerializeField] private SpawnComponent _footStepParticles;
+    [SerializeField] private SpawnComponent _jumpParticles;
+    [SerializeField] private SpawnComponent _landingParticles;
+    [SerializeField] private ParticleSystem _hitParticles;
+
     private Collider2D[] _interactionResult = new Collider2D[1];
     private Rigidbody2D _rigidbody;
     private Vector2 _direction;
     private Animator _animator;
-    private SpriteRenderer _sprite;
     private bool _isGrounded;
     private bool _allowDoubleJump;
-    
+    private bool _doubleJumpUsed;
+    private float _fallingDuration;
+
     private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
     private static readonly int IsRunningKey = Animator.StringToHash("is-running");
     private static readonly int VerticalVelocityKey = Animator.StringToHash("vertical-velocity");
@@ -43,7 +50,6 @@ public class Hero : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        _sprite = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
@@ -58,7 +64,17 @@ public class Hero : MonoBehaviour
 
     private void Update()
     {
-        _isGrounded = IsGrounded();
+        var isGrounded = IsGrounded();
+        if (_isGrounded == false && isGrounded)
+        {
+            if (_fallingDuration > 0.5 || _doubleJumpUsed == true)
+                _landingParticles.Spawn();
+            Debug.Log(_fallingDuration);
+            _fallingDuration = 0;
+            _doubleJumpUsed = false;
+        }
+
+        _isGrounded = isGrounded;
     }
 
     private void FixedUpdate()
@@ -66,9 +82,12 @@ public class Hero : MonoBehaviour
         var xVelocity = _direction.x * _speed;
         var yVelocity = CalculateYVelocity();
         _rigidbody.velocity = new Vector2(xVelocity, yVelocity);
-        
-        
-        
+
+        if (yVelocity < 0)
+        {
+            _fallingDuration += Time.fixedDeltaTime;
+        }
+
         _animator.SetBool(IsGroundKey, _isGrounded);
         _animator.SetFloat(VerticalVelocityKey, _rigidbody.velocity.y);
         _animator.SetBool(IsRunningKey, _direction.x != 0);
@@ -80,7 +99,7 @@ public class Hero : MonoBehaviour
     {
         var yVelocity = _rigidbody.velocity.y;
         var isJumpPressing = _direction.y > 0;
-        
+
         if (_isGrounded) _allowDoubleJump = true;
         if (isJumpPressing)
         {
@@ -89,9 +108,10 @@ public class Hero : MonoBehaviour
             {
                 _rigidbody.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
             }
-        } else if (_rigidbody.velocity.y > 0)
+        }
+        else if (_rigidbody.velocity.y > 0)
         {
-            yVelocity *= 0.5f;;
+            yVelocity *= 0.5f;
         }
 
         return yVelocity;
@@ -105,9 +125,13 @@ public class Hero : MonoBehaviour
         if (_isGrounded)
         {
             yVelocity += _jumpForce;
-        } else if (_allowDoubleJump)
+            SpawnJumpParticles();
+        }
+        else if (_allowDoubleJump)
         {
+            _doubleJumpUsed = true;
             yVelocity += _jumpForce;
+            SpawnJumpParticles();
             _allowDoubleJump = false;
         }
 
@@ -118,10 +142,11 @@ public class Hero : MonoBehaviour
     {
         if (_direction.x > 0)
         {
-            _sprite.flipX = false;
-        } else if (_direction.x < 0)
+            transform.localScale = Vector3.one;
+        }
+        else if (_direction.x < 0)
         {
-            _sprite.flipX = true;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
     }
 
@@ -145,14 +170,32 @@ public class Hero : MonoBehaviour
     {
         _animator.SetTrigger(Hit);
         _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpForce);
+
+        if (_coins > 0)
+        {
+            SpawnCoins();
+        }
+    }
+
+    private void SpawnCoins()
+    {
+        var numCoinsToDispose = Math.Min(_coins, 5);
+        _coins -= numCoinsToDispose;
+
+        var burst = _hitParticles.emission.GetBurst(0);
+        burst.count = numCoinsToDispose;
+        _hitParticles.emission.SetBurst(0, burst);
+
+        _hitParticles.gameObject.SetActive(true);
+        _hitParticles.Play();
     }
 
     public void Interact()
     {
         var size = Physics2D.OverlapCircleNonAlloc(
-            transform.position, 
-            _interactionRadius, 
-            _interactionResult, 
+            transform.position,
+            _interactionRadius,
+            _interactionResult,
             _interactionLayer);
 
         for (int i = 0; i < size; i++)
@@ -163,5 +206,20 @@ public class Hero : MonoBehaviour
                 interactable.Interact();
             }
         }
+    }
+
+    public void SpawnFootDust()
+    {
+        _footStepParticles.Spawn();
+    }
+
+    public void SpawnJumpParticles()
+    {
+        _jumpParticles.Spawn();
+    }
+
+    public void SpawnLandingParticles()
+    {
+        _landingParticles.Spawn();
     }
 }
