@@ -68,8 +68,7 @@ public class Hero : MonoBehaviour
         if (_isGrounded == false && isGrounded)
         {
             if (_fallingDuration > 0.5 || _doubleJumpUsed == true)
-                _landingParticles.Spawn();
-            Debug.Log(_fallingDuration);
+                SpawnLandingParticles();
             _fallingDuration = 0;
             _doubleJumpUsed = false;
         }
@@ -221,5 +220,21 @@ public class Hero : MonoBehaviour
     public void SpawnLandingParticles()
     {
         _landingParticles.Spawn();
+    }
+
+    public void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.GetComponent<CycledMovingComponent>())
+        {
+            transform.parent = other.transform;
+        }
+    }
+
+    public void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.GetComponent<CycledMovingComponent>())
+        {
+            transform.parent = null;
+        }    
     }
 }

@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &326529980
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 326529981}
+  - component: {fileID: 326529982}
+  m_Layer: 9
+  m_Name: LandingParticlesPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &326529981
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326529980}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.016, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9016153909220099066}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &326529982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326529980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ddf5c9b00151624c860b921a062a5fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 326529981}
+  _prefab: {fileID: 4615787848076337411, guid: 1d3c50da2b656c1438dc8ea04476c7b4, type: 3}
 --- !u!1 &633838807
 GameObject:
   m_ObjectHideFlags: 0
@@ -4812,6 +4857,51 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1 &1884781819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1884781820}
+  - component: {fileID: 1884781821}
+  m_Layer: 9
+  m_Name: JumpParticlesPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1884781820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884781819}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.105, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9016153909220099066}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1884781821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884781819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ddf5c9b00151624c860b921a062a5fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 1884781820}
+  _prefab: {fileID: 2879455527106891825, guid: f31738df57b33c54c96cca68f0c17201, type: 3}
 --- !u!1 &47713097234862354
 GameObject:
   m_ObjectHideFlags: 0
@@ -4874,6 +4964,7 @@ GameObject:
   - component: {fileID: 9016153909220099046}
   - component: {fileID: 9016153909220099041}
   - component: {fileID: 469846226}
+  - component: {fileID: 1993716016}
   m_Layer: 9
   m_Name: Hero
   m_TagString: Player
@@ -4895,6 +4986,8 @@ Transform:
   - {fileID: 9016153909356916170}
   - {fileID: 8302081486519053207}
   - {fileID: 633838810}
+  - {fileID: 1884781820}
+  - {fileID: 326529981}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4982,7 +5075,9 @@ MonoBehaviour:
     m_Bits: 2048
   _coins: 0
   _groundCheck: {fileID: 9016153909356916148}
-  _foorStepParticles: {fileID: 2072773165}
+  _footStepParticles: {fileID: 2072773165}
+  _jumpParticles: {fileID: 1884781821}
+  _landingParticles: {fileID: 326529982}
   _hitParticles: {fileID: 633838809}
 --- !u!114 &9016153909220099045
 MonoBehaviour:
@@ -5173,6 +5268,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!210 &1993716016
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9016153909220099064}
+  m_Enabled: 1
+  m_SortingLayerID: -1334879473
+  m_SortingLayer: 3
+  m_SortingOrder: 0
 --- !u!1 &9016153909356916169
 GameObject:
   m_ObjectHideFlags: 0
