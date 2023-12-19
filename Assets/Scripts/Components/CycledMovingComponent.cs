@@ -19,7 +19,6 @@ namespace Scripts.Components
 
         private void Start()
         {
-            _isActive = false;
             _instancePointA = _pointA.position;
             _instancePointB = _pointB.position;
             _currentTarget = _instancePointA;
@@ -49,7 +48,7 @@ namespace Scripts.Components
 
         public void OnActivate()
         {
-            _isActive = true;
+            _isActive = !_isActive;
         }
     }
 }

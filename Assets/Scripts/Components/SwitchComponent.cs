@@ -10,7 +10,6 @@ namespace Scripts.Components
         [SerializeField] private Animator _animator;
         [SerializeField] private bool _state;
         [SerializeField] private string _animationKey;
-        public bool State => _state;
 
         public void Switch()
         {

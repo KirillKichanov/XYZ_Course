@@ -11,6 +11,11 @@ GameObject:
   - component: {fileID: 4353726243370643448}
   - component: {fileID: 5551561159314693789}
   - component: {fileID: 1546831853152716377}
+  - component: {fileID: 1989947022}
+  - component: {fileID: 1989947023}
+  - component: {fileID: 1989947024}
+  - component: {fileID: 1643510300}
+  - component: {fileID: 1643510301}
   m_Layer: 0
   m_Name: Teleport
   m_TagString: Untagged
@@ -25,7 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5404870611197574415}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.19127655, y: -2.1496642, z: 14.943359}
   m_LocalScale: {x: 0.8356514, y: 0.86852217, z: 1}
   m_Children: []
@@ -71,8 +76,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 1f834930a570d984481474283aa3d99b, type: 3}
-  m_Color: {r: 0.8773585, g: 0.11173906, b: 0.7720294, a: 1}
+  m_Sprite: {fileID: -2719994208978545080, guid: 325f28f8c9c290c49857a9fb228bddfb,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -92,9 +98,118 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1989947022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5404870611197574415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b016074b3733b174f88e33e1972ce378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destTransform: {fileID: 0}
+--- !u!114 &1989947023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5404870611197574415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 522cb6d18a660124a8de55d94ea89e69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tag: Player
+  _action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1989947022}
+        m_MethodName: Teleport
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1989947024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5404870611197574415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493cae126cbee85449bead3a5bc2d5b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _clips:
+  - _name: idle
+    _loop: 1
+    sprites:
+    - {fileID: -2719994208978545080, guid: 325f28f8c9c290c49857a9fb228bddfb, type: 3}
+    - {fileID: 4394573487689358311, guid: 325f28f8c9c290c49857a9fb228bddfb, type: 3}
+    - {fileID: -2285153152877451226, guid: 325f28f8c9c290c49857a9fb228bddfb, type: 3}
+    - {fileID: 8165007364133127476, guid: 325f28f8c9c290c49857a9fb228bddfb, type: 3}
+    - {fileID: -6852767344712249715, guid: 325f28f8c9c290c49857a9fb228bddfb, type: 3}
+    - {fileID: -4848553832261993613, guid: 325f28f8c9c290c49857a9fb228bddfb, type: 3}
+    - {fileID: 1943393458402971858, guid: 325f28f8c9c290c49857a9fb228bddfb, type: 3}
+    - {fileID: 2502851955874185411, guid: 325f28f8c9c290c49857a9fb228bddfb, type: 3}
+    _allowNextClip: 0
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!114 &1643510300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5404870611197574415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b016074b3733b174f88e33e1972ce378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destTransform: {fileID: 0}
+--- !u!114 &1643510301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5404870611197574415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 522cb6d18a660124a8de55d94ea89e69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tag: Player
+  _action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1643510300}
+        m_MethodName: Teleport
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
