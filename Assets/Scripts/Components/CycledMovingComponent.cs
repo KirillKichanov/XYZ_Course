@@ -8,6 +8,7 @@ namespace Scripts.Components
     public class CycledMovingComponent : MonoBehaviour
     {
         [SerializeField] private bool _isActive;
+        public bool isPlatformActive => _isActive;
         
         [SerializeField] private Transform _pointA;
         private Vector3 _instancePointA;

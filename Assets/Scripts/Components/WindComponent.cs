@@ -14,6 +14,8 @@ namespace Scripts.Components
 
         [SerializeField] private ParticleSystem _windParticles;
         
+        public Collider2D activeWind => _activeWind;
+        
         private void Start()
         {
             _inactiveWind.enabled = true;
