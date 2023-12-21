@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,18 +12,20 @@ namespace Scripts.Components
         [SerializeField] private int _heal;
 
 
-        public void ApplyDamage(GameObject target)
+        public void ApplyDamage()
         {
-            var healthComponent = target.GetComponent<HealthComponent>();
+            var hero = GameManager.Instance.Hero;
+            var healthComponent = hero.GetComponent<HealthComponent>();
             if (healthComponent != null)
             {
                 healthComponent.ApplyDamage(_damage);
             }
         }
 
-        public void ApplyHeal(GameObject target)
+        public void ApplyHeal()
         {
-            var healthComponent = target.GetComponent<HealthComponent>();
+            var hero = GameManager.Instance.Hero;
+            var healthComponent = hero.GetComponent<HealthComponent>();
             if (healthComponent != null)
             {
                 healthComponent.ApplyHeal(_heal);

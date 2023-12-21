@@ -1,0 +1,230 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &270990637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4510949398744581618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f93f13ef3e180ae49b4ff1805d93068f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 3
+  _maxHealth: 3
+  _immortalTime: 0
+  _onDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 270990639}
+        m_MethodName: SetClip
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: hit
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onHeal:
+    m_PersistentCalls:
+      m_Calls: []
+  _onDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 270990639}
+        m_MethodName: SetClip
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: destroy
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &270990638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4510949398744581618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f978e3409fae084a8e19c5df45b6895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &270990639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4510949398744581618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493cae126cbee85449bead3a5bc2d5b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _clips:
+  - _name: idle
+    _loop: 0
+    sprites:
+    - {fileID: 21300000, guid: aadd1c80fe3f11a47b12c9326e8dd31e, type: 3}
+    _allowNextClip: 0
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - _name: hit
+    _loop: 0
+    sprites:
+    - {fileID: -7723265081315097764, guid: ad9763f2e3fdd1d44b275522a63d17d4, type: 3}
+    - {fileID: -6367150394137065162, guid: ad9763f2e3fdd1d44b275522a63d17d4, type: 3}
+    - {fileID: -4567092851126130046, guid: ad9763f2e3fdd1d44b275522a63d17d4, type: 3}
+    - {fileID: 5449632007625061378, guid: ad9763f2e3fdd1d44b275522a63d17d4, type: 3}
+    _allowNextClip: 0
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 270990639}
+          m_MethodName: SetClip
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: idle
+            m_BoolArgument: 0
+          m_CallState: 2
+  - _name: destroy
+    _loop: 0
+    sprites:
+    - {fileID: -5646961464007673631, guid: ad9763f2e3fdd1d44b275522a63d17d4, type: 3}
+    - {fileID: -8845929038980579371, guid: ad9763f2e3fdd1d44b275522a63d17d4, type: 3}
+    _allowNextClip: 0
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 270990638}
+          m_MethodName: Destroy
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!1001 &2565657194994801491
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2089977213728972449, guid: abad8c05832234f4d804fde5dd945e61,
+        type: 3}
+      propertyPath: m_Name
+      value: DestructableBarrel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089977213728972449, guid: abad8c05832234f4d804fde5dd945e61,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089977213728972452, guid: abad8c05832234f4d804fde5dd945e61,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.7743493
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089977213728972452, guid: abad8c05832234f4d804fde5dd945e61,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.015671045
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089977213728972452, guid: abad8c05832234f4d804fde5dd945e61,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.8125
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089977213728972452, guid: abad8c05832234f4d804fde5dd945e61,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.9375
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089977213728972454, guid: abad8c05832234f4d804fde5dd945e61,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: aadd1c80fe3f11a47b12c9326e8dd31e,
+        type: 3}
+    - target: {fileID: 2089977213728972455, guid: abad8c05832234f4d804fde5dd945e61,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089977213728972455, guid: abad8c05832234f4d804fde5dd945e61,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.437
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089977213728972455, guid: abad8c05832234f4d804fde5dd945e61,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089977213728972455, guid: abad8c05832234f4d804fde5dd945e61,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 24.144531
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089977213728972455, guid: abad8c05832234f4d804fde5dd945e61,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089977213728972455, guid: abad8c05832234f4d804fde5dd945e61,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089977213728972455, guid: abad8c05832234f4d804fde5dd945e61,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089977213728972455, guid: abad8c05832234f4d804fde5dd945e61,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089977213728972455, guid: abad8c05832234f4d804fde5dd945e61,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089977213728972455, guid: abad8c05832234f4d804fde5dd945e61,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089977213728972455, guid: abad8c05832234f4d804fde5dd945e61,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: abad8c05832234f4d804fde5dd945e61, type: 3}
+--- !u!1 &4510949398744581618 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2089977213728972449, guid: abad8c05832234f4d804fde5dd945e61,
+    type: 3}
+  m_PrefabInstance: {fileID: 2565657194994801491}
+  m_PrefabAsset: {fileID: 0}

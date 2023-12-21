@@ -11,6 +11,8 @@ namespace Scripts.Components
         
         [SerializeField] private Collider2D _inactiveWind;
         [SerializeField] private Collider2D _activeWind;
+        
+        public Collider2D activeWind => _activeWind;
 
         [SerializeField] private ParticleSystem _windParticles;
         
