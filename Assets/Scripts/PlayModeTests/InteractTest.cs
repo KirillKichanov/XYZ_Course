@@ -64,7 +64,7 @@ namespace Tests
             var doorState = door.GetComponent<SwitchComponent>().doorState;
             var doorCollider = door.GetComponent<BoxCollider2D>().enabled;
             
-            Assert.That(doorState || doorCollider == false, "Door can't be opened!");
+            Assert.That(doorState && doorCollider == false, "Door can't be opened!");
             Debug.Log("Door switch works!");
         }
 
@@ -92,7 +92,7 @@ namespace Tests
             var doorCollider = door.GetComponent<BoxCollider2D>().enabled;
             var windState = wind.GetComponent<WindComponent>().activeWind.enabled;
             
-            Assert.That(doorState || doorCollider == false || windState, "Wind can't be activated!");
+            Assert.That(doorState && doorCollider == false || windState, "Wind can't be activated!");
             Debug.Log("Door and wind switch works!");
         }
     }
