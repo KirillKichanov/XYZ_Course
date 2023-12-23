@@ -14,7 +14,7 @@ namespace Tests
         public override void Setup()
         {
             base.Setup();
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("TestScene");
         }
 
         [UnityTest]
@@ -25,16 +25,14 @@ namespace Tests
             var keyboard = InputSystem.AddDevice<Keyboard>();
             var platform = GameObject.Find("UpDownPlatform");
             
-            yield return null;
-
             player.transform.position = platformSwitch.transform.position;
             
-            yield return null;
+            yield return new WaitUntil(() => player.transform.position == platformSwitch.transform.position);
 
             Press(keyboard.eKey);
             Release(keyboard.eKey);
-            
-            yield return new WaitForSeconds(1);
+
+            yield return null;
             
             var isPlatformActive = platform.GetComponent<CycledMovingComponent>().isPlatformActive;
 
@@ -50,15 +48,13 @@ namespace Tests
             var door = GameObject.Find("Door_0");
             var keyboard = InputSystem.AddDevice<Keyboard>();
             
-            yield return null;
-
             player.transform.position = doorSwitch.transform.position;
             
-            yield return null;
+            yield return new WaitUntil(() => player.transform.position == doorSwitch.transform.position);
             
             Press(keyboard.eKey);
             Release(keyboard.eKey);
-            
+
             yield return new WaitForSeconds(1);
 
             var doorState = door.GetComponent<SwitchComponent>().doorState;
@@ -77,16 +73,14 @@ namespace Tests
             var wind = GameObject.Find("Wind");
             var keyboard = InputSystem.AddDevice<Keyboard>();
             
-            yield return null;
-            
             player.transform.position = doorAndWindSwitch.transform.position;
-
-            yield return null;
-
+            
+            yield return new WaitUntil(() => player.transform.position == doorAndWindSwitch.transform.position);
+            
             Press(keyboard.eKey);
             Release(keyboard.eKey);
             
-            yield return new WaitForSeconds(1);
+            yield return null;
 
             var doorState = door.GetComponent<SwitchComponent>().doorState;
             var doorCollider = door.GetComponent<BoxCollider2D>().enabled;

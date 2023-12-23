@@ -10,33 +10,28 @@ namespace Tests
 {
     public class TeleportTest : InputTestFixture
     {
-        public GameObject _player;
-        public GameObject _teleport;
-        public GameObject _teleportDestination;
         
         public override void Setup()
         {
             base.Setup();
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("TestScene");
         }
         
         [UnityTest]
         public IEnumerator TeleportTestWithEnumeratorPasses()
         {
-            _player = GameObject.Find("Hero");
-            _teleport = GameObject.Find("Teleport");
-            _teleportDestination = GameObject.Find("TeleportDestination1");
+            var player = GameObject.Find("Hero");
+            var teleport = GameObject.Find("Teleport");
+            var teleportDestination = GameObject.Find("TeleportDestination1");
 
-            var teleportPosition = _teleport.transform.position;
-            var teleportDestinationPosition = _teleportDestination.transform.position;
+            var teleportPosition = teleport.transform.position;
+            var teleportDestinationPosition = teleportDestination.transform.position;
 
-            yield return null;
+            player.transform.position = teleportPosition;
             
-            _player.transform.position = teleportPosition;
-
-            yield return new WaitUntil(() => _player.transform.position == teleportDestinationPosition);
+            yield return new WaitUntil(() => player.transform.position == teleportDestinationPosition);
             
-            Assert.That(_player.transform.position == teleportDestinationPosition, "Player can't use teleport!");
+            Assert.That(player.transform.position == teleportDestinationPosition, "Player can't use teleport!");
             Debug.Log("Player teleported successfully!");
         }
     }

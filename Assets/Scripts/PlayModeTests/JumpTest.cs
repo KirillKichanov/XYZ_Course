@@ -13,7 +13,7 @@ namespace Tests
         public override void Setup()
         {
             base.Setup();
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("TestScene");
         }
 
         [UnityTest]
@@ -21,25 +21,55 @@ namespace Tests
         {
             var player = GameObject.Find("Hero");
             var startPosition = player.transform.position.y;
-            
-            //jump test
+            var newJumpPosition = startPosition;
             var keyboard = InputSystem.AddDevice<Keyboard>();
+            
             Press(keyboard.spaceKey);
-            yield return new WaitForSeconds(0.1f);
-            Release(keyboard.spaceKey);
 
-            var newJumpPosition = player.transform.position.y;
+            while (startPosition == newJumpPosition)
+            {
+                yield return null;
+                newJumpPosition = player.transform.position.y;
+            }
+            
+            newJumpPosition = player.transform.position.y;
+            
             Assert.That(newJumpPosition > startPosition, "Player can't jump!");
             Debug.Log("Player jump successful!");
-            yield return new WaitForSeconds(0.1f);
-            
-            //double jump test
-            Press(keyboard.spaceKey);
-            yield return new WaitForSeconds(0.3f);
-            Release(keyboard.spaceKey);
+        }
 
-            var newDoubleJumpPosition = player.transform.position.y;
-            Assert.That(newDoubleJumpPosition > newJumpPosition, "Player can't do double jump!");
+        [UnityTest]
+        public IEnumerator DoubleJumpTestWithEnumeratorPasses()
+        {
+            var player = GameObject.Find("Hero");
+            var startPosition = player.transform.position.y;
+            var firstJumpPosition = startPosition;
+            var secondJumpPosition = startPosition;
+            var keyboard = InputSystem.AddDevice<Keyboard>();
+            
+            Press(keyboard.spaceKey);
+
+            while (startPosition == firstJumpPosition)
+            {
+                yield return null;
+                firstJumpPosition = player.transform.position.y;
+            }
+            
+            firstJumpPosition = player.transform.position.y;
+            secondJumpPosition = firstJumpPosition;
+            
+            Release(keyboard.spaceKey);
+            Press(keyboard.spaceKey);
+            
+            while (firstJumpPosition == secondJumpPosition)
+            {
+                yield return null;
+                secondJumpPosition = player.transform.position.y;
+            }
+            
+            secondJumpPosition = player.transform.position.y;
+            
+            Assert.That(firstJumpPosition > startPosition && secondJumpPosition > firstJumpPosition, "Player can't double jump!");
             Debug.Log("Player double jump successful!");
         }
     }

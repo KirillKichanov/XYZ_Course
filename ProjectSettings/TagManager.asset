@@ -8,6 +8,7 @@ TagManager:
   - Silver
   - Gold
   - Trap
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Player
   - Coin
   - Interactables
-  - 
+  - Trash
   - 
   - 
   - 

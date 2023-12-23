@@ -15,7 +15,7 @@ namespace Scripts.Components
             if (other.gameObject.CompareTag(_tag))
             {
                 _action?.Invoke();
-            } else if (other.gameObject.CompareTag("Props"))
+            } else if (other.gameObject.CompareTag("Props") || other.gameObject.CompareTag("Enemy"))
             {
                 Destroy(other.gameObject);
             }

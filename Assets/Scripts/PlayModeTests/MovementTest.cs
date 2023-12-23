@@ -13,41 +13,55 @@ namespace Tests
         public override void Setup()
         {
             base.Setup();
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("TestScene");
         }
 
         [UnityTest]
-        public IEnumerator TestPlayerMovement()
+        public IEnumerator TestPlayerMovementLeftWithEnumeratorPasses()
         {
             var player = GameObject.Find("Hero");
             var startPosition = player.transform.position.x;
+            var newPosition = startPosition;
             
-            //move left test
             var keyboard = InputSystem.AddDevice<Keyboard>();
-            Press(keyboard.aKey);
-            yield return new WaitForSeconds(1);
             
-            Release(keyboard.aKey);
-            var newPosition = player.transform.position.x;
+            Press(keyboard.aKey);
+
+            while (startPosition == newPosition)
+            {
+                yield return null;
+                newPosition = player.transform.position.x;
+            }
+            
+            newPosition = player.transform.position.x;
             
             Assert.That(startPosition > newPosition, "Player can't move left!");
             Debug.Log("Player move left successful!");
+        }
 
-            yield return new WaitForSeconds(1);
+        [UnityTest]
+        public IEnumerator TestPlayerMovementRightWithEnumeratorPasses()
+        {
+            var player = GameObject.Find("Hero");
+            var startPosition = player.transform.position.x;
+            var newPosition = startPosition;
             
-            //move right test
-            startPosition = player.transform.position.x;
+            var keyboard = InputSystem.AddDevice<Keyboard>();
+            
             Press(keyboard.dKey);
-            yield return new WaitForSeconds(1);
+
+            while (startPosition == newPosition)
+            {
+                yield return null;
+                newPosition = player.transform.position.x;
+            }
             
-            Release(keyboard.dKey);
             newPosition = player.transform.position.x;
             
             Assert.That(startPosition < newPosition, "Player can't move right!");
             Debug.Log("Player move right successful!");
-            
         }
-        
+
         //нужно для очистки сцены, если что-то создавалось во время теста
         public override void TearDown()
         {

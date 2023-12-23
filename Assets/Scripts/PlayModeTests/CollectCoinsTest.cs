@@ -11,27 +11,44 @@ namespace Tests
 {
     public class CollectCoinsTest : InputTestFixture
     {
-        public GameObject _player;
         public override void Setup()
         {
             base.Setup();
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene("TestScene");
         }
         
         [UnityTest]
-        public IEnumerator CollectCoinsTestWithEnumeratorPasses()
+        public IEnumerator CollectSilverCoinsTestWithEnumeratorPasses()
         {
-            _player = GameObject.Find("Hero");
-            var keyboard = InputSystem.AddDevice<Keyboard>();
-            
-            Press(keyboard.dKey);
-            yield return new WaitForSeconds(1);
+            var player = GameObject.Find("Hero");
+            var silverCoin = GameObject.Find("SilverCoin");
+            var startCoins = player.GetComponent<Hero>().Coins;
 
-            var hero = _player.GetComponent<Hero>();
-            var coins = ReflectionHelper.GetPrivateFieldValue<int>(hero, "_coins");
+            player.transform.position = silverCoin.transform.position;
             
-            Assert.That(coins == 11, "Player can't collect coins!");
-            Debug.Log("Player can collect coins!");
+            yield return new WaitForFixedUpdate();
+
+            var collectedCoins = player.GetComponent<Hero>().Coins;
+            
+            Assert.That(startCoins == 0 && collectedCoins == 1, "Player can't collect silver coins!");
+            Debug.Log($"Player collected silver coin! Number of coins: {collectedCoins}");
+        }
+        
+        [UnityTest]
+        public IEnumerator CollectGoldenCoinsTestWithEnumeratorPasses()
+        {
+            var player = GameObject.Find("Hero");
+            var goldenCoin = GameObject.Find("GoldenCoin");
+            var startCoins = player.GetComponent<Hero>().Coins;
+            
+            player.transform.position = goldenCoin.transform.position;
+            
+            yield return new WaitForFixedUpdate();
+
+            var collectedCoins = player.GetComponent<Hero>().Coins;
+            
+            Assert.That(startCoins == 0 && collectedCoins == 10, "Player can't collect coins!");
+            Debug.Log($"Player collected golden coin! Number of coins: {collectedCoins}");
         }
     }
 }

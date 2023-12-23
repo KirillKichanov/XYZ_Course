@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using Scripts.Components;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -11,6 +12,7 @@ public class Hero : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _damageJumpForce;
+    [SerializeField] private int _damage;
     [SerializeField] private float _interactionRadius;
     [SerializeField] private LayerMask _interactionLayer;
 
@@ -18,6 +20,11 @@ public class Hero : MonoBehaviour
     [SerializeField] private int _coins;
 
     [SerializeField] private LayerCheck _groundCheck;
+
+    [SerializeField] private AnimatorController _armed;
+    [SerializeField] private AnimatorController _unarmed;
+    
+    [SerializeField] private CheckCircleOverlap _attackRange;
 
     [SerializeField] private SpawnComponent _footStepParticles;
     [SerializeField] private SpawnComponent _jumpParticles;
@@ -31,15 +38,18 @@ public class Hero : MonoBehaviour
     private bool _isGrounded;
     private bool _allowDoubleJump;
     private bool _doubleJumpUsed;
+    private bool _isArmed;
     private float _fallingDuration;
 
     private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
     private static readonly int IsRunningKey = Animator.StringToHash("is-running");
     private static readonly int VerticalVelocityKey = Animator.StringToHash("vertical-velocity");
     private static readonly int Hit = Animator.StringToHash("hit");
+    private static readonly int AttackKey = Animator.StringToHash("attack");
 
 
-    public float Speed => _speed; //так доставать приватные переменные в тест
+    public float Speed => _speed; 
+    public int Coins => _coins;//так доставать приватные переменные в тест
     /* public float JumpForce
     {
         get { return _jumpForce; } property C#
@@ -235,6 +245,32 @@ public class Hero : MonoBehaviour
         if (other.gameObject.GetComponent<CycledMovingComponent>())
         {
             transform.parent = null;
-        }    
+        }
+    }
+
+    public void ArmHero()
+    {
+        _isArmed = true;
+        _animator.runtimeAnimatorController = _armed;
+    }
+
+    public void Attack()
+    {
+        if (!_isArmed) return;
+        
+        _animator.SetTrigger(AttackKey);
+    }
+
+    public void OnAttack()
+    {
+        var gos = _attackRange.GetObjectsInRange();
+        foreach (var go in gos)
+        {
+            var hp = go.GetComponent<HealthComponent>();
+            if (hp != null && go.CompareTag("Enemy"))
+            {
+                hp.ApplyDamage(_damage);
+            }
+        }
     }
 }
