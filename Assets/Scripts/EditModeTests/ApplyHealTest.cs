@@ -11,7 +11,7 @@ namespace Tests
         [Test]
         public void ApplyHealWithSimplePasses()
         {
-            var player = LoadHeroHelper.LoadHero();
+            var player = LoadPrefabHelper.LoadHero();
             var healthComponent = player.GetComponent<HealthComponent>();
             var startHealth = healthComponent.health;
             

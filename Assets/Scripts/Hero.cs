@@ -29,6 +29,7 @@ public class Hero : MonoBehaviour
     [SerializeField] private SpawnComponent _footStepParticles;
     [SerializeField] private SpawnComponent _jumpParticles;
     [SerializeField] private SpawnComponent _landingParticles;
+    [SerializeField] private SpawnComponent _attack1Particles;
     [SerializeField] private ParticleSystem _hitParticles;
 
     private Collider2D[] _interactionResult = new Collider2D[1];
@@ -232,6 +233,11 @@ public class Hero : MonoBehaviour
         _landingParticles.Spawn();
     }
 
+    public void SpawnAttack1Particles()
+    {
+        _attack1Particles.Spawn();
+    }
+
     public void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.GetComponent<CycledMovingComponent>())
@@ -259,6 +265,10 @@ public class Hero : MonoBehaviour
         if (!_isArmed) return;
         
         _animator.SetTrigger(AttackKey);
+        if (_isGrounded)
+        {
+            SpawnAttack1Particles();
+        }
     }
 
     public void OnAttack()

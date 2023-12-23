@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8185198133994790218}
   - component: {fileID: 8185198133994790219}
   - component: {fileID: 8185198133994790225}
+  - component: {fileID: 2036643563867443092}
   m_Layer: 8
   m_Name: DestructableBarrel
   m_TagString: Enemy
@@ -257,6 +258,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2036643563867443092}
+        m_MethodName: CoinsSpawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8185198133994790219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,3 +295,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 3726135942045706340}
   _prefab: {fileID: 908478188523672322, guid: 8349189668afa8745842cadc15dfc134, type: 3}
+--- !u!114 &2036643563867443092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3726135942045706338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be5c817692459245ab07d430db5b0af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coinsToSpawn: 3
+  _spawnRadius: 0.4
+  _silverCoin: {fileID: 8659805156670625656, guid: 65bb830d82e489146a2e2909fbc868a3,
+    type: 3}
+  _goldenCoin: {fileID: 4415234277601011099, guid: 2fa7c84fb60eff649991a6bf96af2679,
+    type: 3}
+  _silverProbability: 0.7
+  _goldenProbability: 0.3
