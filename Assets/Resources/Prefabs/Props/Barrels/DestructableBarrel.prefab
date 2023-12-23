@@ -313,5 +313,4 @@ MonoBehaviour:
     type: 3}
   _goldenCoin: {fileID: 4415234277601011099, guid: 2fa7c84fb60eff649991a6bf96af2679,
     type: 3}
-  _silverProbability: 0.7
   _goldenProbability: 0.3
