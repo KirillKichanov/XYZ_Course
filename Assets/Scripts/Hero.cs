@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using Scripts.Components;
+using Scripts.Model;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class Hero : MonoBehaviour
 {
+    private GameSession _session;
+
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _damageJumpForce;
@@ -16,14 +19,11 @@ public class Hero : MonoBehaviour
     [SerializeField] private float _interactionRadius;
     [SerializeField] private LayerMask _interactionLayer;
 
-
-    [SerializeField] private int _coins;
-
     [SerializeField] private LayerCheck _groundCheck;
 
     [SerializeField] private AnimatorController _armed;
     [SerializeField] private AnimatorController _unarmed;
-    
+
     [SerializeField] private CheckCircleOverlap _attackRange;
 
     [SerializeField] private SpawnComponent _footStepParticles;
@@ -39,7 +39,6 @@ public class Hero : MonoBehaviour
     private bool _isGrounded;
     private bool _allowDoubleJump;
     private bool _doubleJumpUsed;
-    private bool _isArmed;
     private float _fallingDuration;
 
     private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
@@ -49,8 +48,8 @@ public class Hero : MonoBehaviour
     private static readonly int AttackKey = Animator.StringToHash("attack");
 
 
-    public float Speed => _speed; 
-    public int Coins => _coins;//так доставать приватные переменные в тест
+    public float Speed => _speed;
+    //public int Coins => _coins;//так доставать приватные переменные в тест
     /* public float JumpForce
     {
         get { return _jumpForce; } property C#
@@ -63,9 +62,18 @@ public class Hero : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
+    public void OnHealthChanged(int currentHealth)
+    {
+        _session.Data.Hp = currentHealth;
+    }
+
     private void Start()
     {
-        _coins = 0;
+        _session = FindObjectOfType<GameSession>();
+        var health = GetComponent<HealthComponent>();
+        health.SetHealth(_session.Data.Hp);
+        
+        UpdateHeroWeapon();
     }
 
     public void SetDirection(Vector2 direction)
@@ -172,8 +180,8 @@ public class Hero : MonoBehaviour
 
     public void CoinCollect(int Amount)
     {
-        _coins += Amount;
-        Debug.Log(_coins);
+        _session.Data.Coins += Amount;
+        Debug.Log(_session.Data.Coins);
     }
 
     public void TakeDamage()
@@ -181,7 +189,7 @@ public class Hero : MonoBehaviour
         _animator.SetTrigger(Hit);
         _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _damageJumpForce);
 
-        if (_coins > 0)
+        if (_session.Data.Coins > 0)
         {
             SpawnCoins();
         }
@@ -189,8 +197,8 @@ public class Hero : MonoBehaviour
 
     private void SpawnCoins()
     {
-        var numCoinsToDispose = Math.Min(_coins, 5);
-        _coins -= numCoinsToDispose;
+        var numCoinsToDispose = Math.Min(_session.Data.Coins, 5);
+        _session.Data.Coins -= numCoinsToDispose;
 
         var burst = _hitParticles.emission.GetBurst(0);
         burst.count = numCoinsToDispose;
@@ -256,14 +264,14 @@ public class Hero : MonoBehaviour
 
     public void ArmHero()
     {
-        _isArmed = true;
-        _animator.runtimeAnimatorController = _armed;
+        _session.Data.isArmed = true;
+        UpdateHeroWeapon();
     }
 
     public void Attack()
     {
-        if (!_isArmed) return;
-        
+        if (!_session.Data.isArmed) return;
+
         _animator.SetTrigger(AttackKey);
         if (_isGrounded)
         {
@@ -271,7 +279,7 @@ public class Hero : MonoBehaviour
         }
     }
 
-    public void OnAttack()
+    public void OnDoAttack()
     {
         var gos = _attackRange.GetObjectsInRange();
         foreach (var go in gos)
@@ -282,5 +290,10 @@ public class Hero : MonoBehaviour
                 hp.ApplyDamage(_damage);
             }
         }
+    }
+
+    private void UpdateHeroWeapon()
+    {
+        _animator.runtimeAnimatorController = _session.Data.isArmed ? _armed : _unarmed;
     }
 }

@@ -16,8 +16,8 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8346587881412586014}
-        m_MethodName: Reload
+      - m_Target: {fileID: 7375169014597197064}
+        m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -27,7 +27,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8346587881412586014
+--- !u!114 &7375169014597197064
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -36,9 +36,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5227986427286243527}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50e55c4bd3c9ae54482520c5346403ac, type: 3}
+  m_Script: {fileID: 11500000, guid: f96be4d44a2d44e2801f2adc22c5fee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sceneName: Level2
 --- !u!1001 &255716561670960584
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -175,6 +176,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5551561159314693789, guid: eb02f4586c5f50a4c8e11a1dcd3d7c27,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5551561159314693789, guid: eb02f4586c5f50a4c8e11a1dcd3d7c27,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1141187311
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1989947023, guid: eb02f4586c5f50a4c8e11a1dcd3d7c27, type: 3}

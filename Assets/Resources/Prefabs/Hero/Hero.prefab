@@ -5165,7 +5165,6 @@ MonoBehaviour:
   _interactionLayer:
     serializedVersion: 2
     m_Bits: 2048
-  _coins: 0
   _groundCheck: {fileID: 9016153909356916148}
   _armed: {fileID: 9100000, guid: 282b2128661a964438a1a95656e64058, type: 2}
   _unarmed: {fileID: 9100000, guid: aa97802a57846684bad1d0637fa91676, type: 2}
@@ -5356,6 +5355,20 @@ MonoBehaviour:
       - m_Target: {fileID: 0}
         m_MethodName: Reload
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9016153909220099044}
+        m_MethodName: OnHealthChanged
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
