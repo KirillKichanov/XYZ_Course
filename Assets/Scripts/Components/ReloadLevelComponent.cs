@@ -11,7 +11,14 @@ namespace Scripts.Components
         public void Reload()
         {
             var session = FindObjectOfType<GameSession>();
-            Destroy(session.gameObject);
+            if (session.HasSavedState())
+            {
+                session.LoadSavedState();
+            }
+            else
+            {
+                Destroy(session.gameObject);
+            }
             
             var scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);

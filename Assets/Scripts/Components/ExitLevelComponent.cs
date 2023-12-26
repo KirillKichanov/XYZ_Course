@@ -9,6 +9,7 @@ namespace Scripts.Components
         [SerializeField] private string _sceneName;
         public void Exit()
         {
+            GameSession.Get().SaveState();
             SceneManager.LoadScene(_sceneName);
         }
     }

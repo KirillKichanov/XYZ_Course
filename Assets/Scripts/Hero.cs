@@ -273,10 +273,6 @@ public class Hero : MonoBehaviour
         if (!_session.Data.isArmed) return;
 
         _animator.SetTrigger(AttackKey);
-        if (_isGrounded)
-        {
-            SpawnAttack1Particles();
-        }
     }
 
     public void OnDoAttack()
