@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Scripts.Creatures;
 
 public class HeroInputReader : MonoBehaviour
 {

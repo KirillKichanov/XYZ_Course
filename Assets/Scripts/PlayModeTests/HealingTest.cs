@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using Scripts.Creatures;
 
 namespace Tests
 {
