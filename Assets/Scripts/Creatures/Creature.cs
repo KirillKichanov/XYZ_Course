@@ -117,7 +117,7 @@ namespace Scripts.Creatures
             Animator.SetTrigger(AttackKey);
         }
         
-        public void OnDoAttack()
+        /*public void OnDoAttack()
         {
             var gos = _attackRange.GetObjectsInRange();
             foreach (var go in gos)
@@ -127,7 +127,7 @@ namespace Scripts.Creatures
                 {
                     hp.ApplyDamage(_damage);
                 }
-            }
-        }
+            }*
+        }*/
     }
 }

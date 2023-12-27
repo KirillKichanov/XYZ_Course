@@ -9,26 +9,9 @@ using UnityEngine.Events;
 public class CheckCircleOverlap : MonoBehaviour
 {
     [SerializeField] private float _radius = 1f;
-
+    [SerializeField] private LayerMask _mask;
     [SerializeField] private OnOverlapEvent _onOverlap;
-
     private readonly Collider2D[] _interactionResult = new Collider2D[5];
-
-    public GameObject[] GetObjectsInRange()
-    {
-        var size = Physics2D.OverlapCircleNonAlloc(
-            transform.position,
-            _radius,
-            _interactionResult);
-
-        var overlaps = new List<GameObject>();
-        for (var i = 0; i < size; i++)
-        {
-            overlaps.Add(_interactionResult[i].gameObject);
-        }
-
-        return overlaps.ToArray();
-    }
 
     private void OnDrawGizmosSelected()
     {
@@ -41,12 +24,13 @@ public class CheckCircleOverlap : MonoBehaviour
         var size = Physics2D.OverlapCircleNonAlloc(
             transform.position,
             _radius,
-            _interactionResult);
+            _interactionResult,
+            _mask);
 
         var overlaps = new List<GameObject>();
         for (var i = 0; i < size; i++)
         {
-            overlaps.Add(_interactionResult[i].gameObject);
+            _onOverlap?.Invoke(_interactionResult[i].gameObject);
         }
     }
 
