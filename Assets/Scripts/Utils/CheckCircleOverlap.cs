@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,7 +12,8 @@ public class CheckCircleOverlap : MonoBehaviour
     [SerializeField] private float _radius = 1f;
     [SerializeField] private LayerMask _mask;
     [SerializeField] private OnOverlapEvent _onOverlap;
-    private readonly Collider2D[] _interactionResult = new Collider2D[5];
+    [SerializeField] private string[] _tags;
+    private readonly Collider2D[] _interactionResult = new Collider2D[10];
 
     private void OnDrawGizmosSelected()
     {
@@ -30,7 +32,12 @@ public class CheckCircleOverlap : MonoBehaviour
         var overlaps = new List<GameObject>();
         for (var i = 0; i < size; i++)
         {
-            _onOverlap?.Invoke(_interactionResult[i].gameObject);
+            var overlapResult = _interactionResult[i];
+            var isInTags = _tags.Any(tag => overlapResult.CompareTag(tag));
+            if (isInTags)
+            {
+                _onOverlap?.Invoke(_interactionResult[i].gameObject);
+            }
         }
     }
 

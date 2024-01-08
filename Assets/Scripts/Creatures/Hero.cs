@@ -15,16 +15,13 @@ namespace Scripts.Creatures
         private GameSession _session;
 
         [SerializeField] private CheckCircleOverlap _interactionCheck;
-
-        [SerializeField] private LayerMask _interactionLayer;
-
+        
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _unarmed;
-
+        
         [SerializeField] private SpawnComponent _attack1Particles;
         [SerializeField] private ParticleSystem _hitParticles;
 
-        private Collider2D[] _interactionResult = new Collider2D[1];
         private bool _allowDoubleJump;
         private bool _doubleJumpUsed;
         
@@ -71,30 +68,26 @@ namespace Scripts.Creatures
             IsGrounded = isGrounded;
         }
 
+        protected override bool AllowJump() => base.AllowJump() || _allowDoubleJump;
+
         protected override float CalculateYVelocity()
         {
-            var isJumpPressing = Direction.y > 0;
-
             if (IsGrounded) _allowDoubleJump = true;
-            if (!isJumpPressing)
-            {
-                return 0f;
-            }
 
             return base.CalculateYVelocity();
         }
 
         protected override float CalculateJumpVelocity(float yVelocity)
         {
-            if (!IsGrounded && _allowDoubleJump)
+            if (IsJumpPerformed) return yVelocity;
+
+            yVelocity = base.CalculateJumpVelocity(yVelocity);
+            if (AllowJump() && !base.AllowJump())
             {
-                _particles.Spawn("Jump");
                 _doubleJumpUsed = true;
                 _allowDoubleJump = false;
-                return _jumpForce;
             }
-
-            return base.CalculateJumpVelocity(yVelocity);
+            return yVelocity;
         }
 
         public void CoinCollect(int Amount)

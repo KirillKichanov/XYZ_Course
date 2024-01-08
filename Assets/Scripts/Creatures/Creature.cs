@@ -24,6 +24,11 @@ namespace Scripts.Creatures
         protected bool IsGrounded;
         protected float FallingDuration;
         
+        protected bool IsJumpPressing => Direction.y > 0;
+        protected bool IsJumpPerformed => IsJumpPressing && Rigidbody.velocity.y > 0;
+        private bool IsJumpCanceled => !IsJumpPressing && Rigidbody.velocity.y > 0;
+        protected virtual bool AllowJump() => IsGrounded;
+        
         private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
         private static readonly int IsRunningKey = Animator.StringToHash("is-running");
         private static readonly int VerticalVelocityKey = Animator.StringToHash("vertical-velocity");
@@ -66,32 +71,22 @@ namespace Scripts.Creatures
         
         protected virtual float CalculateYVelocity()
         {
-            var yVelocity = Rigidbody.velocity.y;
-            var isJumpPressing = Direction.y > 0;
-
-            if (isJumpPressing)
-            {
-                var isFalling = Rigidbody.velocity.y <= 0.001f;
-                if (!isFalling) return yVelocity;
-                yVelocity = isFalling ? CalculateJumpVelocity(yVelocity) : yVelocity;
-            }
-            else if (Rigidbody.velocity.y > 0)
-            {
+            float yVelocity = Rigidbody.velocity.y;
+            if (IsJumpPressing) 
+                yVelocity = CalculateJumpVelocity(yVelocity);
+            if (IsJumpCanceled)
                 yVelocity *= 0.5f;
-            }
 
             return yVelocity;
         }
 
         protected virtual float CalculateJumpVelocity(float yVelocity)
         {
-            if (IsGrounded)
-            {
-                yVelocity = _jumpForce;
-                _particles.Spawn("Jump");
-            }
-
-            return yVelocity;
+            if (IsJumpPerformed) return yVelocity;
+            if (!AllowJump()) return yVelocity;
+    
+            _particles.Spawn("Jump");
+            return yVelocity + _jumpForce;
         }
         
         private void UpdateSpriteDirection()
@@ -117,17 +112,9 @@ namespace Scripts.Creatures
             Animator.SetTrigger(AttackKey);
         }
         
-        /*public void OnDoAttack()
+        public void OnDoAttack()
         {
-            var gos = _attackRange.GetObjectsInRange();
-            foreach (var go in gos)
-            {
-                var hp = go.GetComponent<HealthComponent>();
-                if (hp != null && go.CompareTag("Enemy"))
-                {
-                    hp.ApplyDamage(_damage);
-                }
-            }*
-        }*/
+            _attackRange.Check();
+        }
     }
 }
