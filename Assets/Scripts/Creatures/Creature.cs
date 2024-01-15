@@ -117,5 +117,21 @@ namespace Scripts.Creatures
         {
             _attackRange.Check();
         }
+        
+        public void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.GetComponent<CycledMovingComponent>())
+            {
+                transform.parent = other.transform;
+            }
+        }
+
+        public void OnCollisionExit2D(Collision2D other)
+        {
+            if (other.gameObject.GetComponent<CycledMovingComponent>())
+            {
+                transform.parent = null;
+            }
+        }
     }
 }

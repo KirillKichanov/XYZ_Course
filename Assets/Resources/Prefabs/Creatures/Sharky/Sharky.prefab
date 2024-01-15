@@ -5295,8 +5295,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.037821174}
-  m_Size: {x: 0.764153, y: 0.764153}
+  m_Offset: {x: 0, y: -0.0081575215}
+  m_Size: {x: 0.764153, y: 0.7896058}
   m_Direction: 0
 --- !u!95 &9016153909220099041
 Animator:
@@ -5522,7 +5522,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _aliveCollider: {fileID: 9016153909220099046}
   _afterlifeCollider: {fileID: 5207801418566549363}
-  _currentMob: {fileID: 9016153909220099064}
 --- !u!1 &9016153909356916169
 GameObject:
   m_ObjectHideFlags: 0

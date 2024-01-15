@@ -128,22 +128,6 @@ namespace Scripts.Creatures
             _attack1Particles.Spawn();
         }
 
-        public void OnCollisionEnter2D(Collision2D other)
-        {
-            if (other.gameObject.GetComponent<CycledMovingComponent>())
-            {
-                transform.parent = other.transform;
-            }
-        }
-
-        public void OnCollisionExit2D(Collision2D other)
-        {
-            if (other.gameObject.GetComponent<CycledMovingComponent>())
-            {
-                transform.parent = null;
-            }
-        }
-
         public void ArmHero()
         {
             _session.Data.isArmed = true;
