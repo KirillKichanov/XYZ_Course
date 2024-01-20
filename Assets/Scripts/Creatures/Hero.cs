@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using Scripts.Components;
 using Scripts.Model;
+using Scripts.Utils;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -15,15 +16,22 @@ namespace Scripts.Creatures
         private GameSession _session;
 
         [SerializeField] private CheckCircleOverlap _interactionCheck;
-        
+
+        [SerializeField] private Cooldown _throwCooldown;
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _unarmed;
         
         [SerializeField] private SpawnComponent _attack1Particles;
         [SerializeField] private ParticleSystem _hitParticles;
 
+        [SerializeField] public int _swords;
+
         private bool _allowDoubleJump;
         private bool _doubleJumpUsed;
+        private Coroutine _multipleThrowCoroutine;
+        
+        private static readonly int ThrowKey = Animator.StringToHash("throw");
+
         
         //public int Coins => _coins;//так доставать приватные переменные в тест
         /* public float JumpForce
@@ -45,6 +53,7 @@ namespace Scripts.Creatures
             health.SetHealth(_session.Data.Hp);
 
             UpdateHeroWeapon();
+            _throwCooldown.Initialize();
         }
         
         public void OnHealthChanged(int currentHealth)
@@ -144,6 +153,53 @@ namespace Scripts.Creatures
         private void UpdateHeroWeapon()
         {
             Animator.runtimeAnimatorController = _session.Data.isArmed ? _armed : _unarmed;
+        }
+
+        public void OnDoThrow()
+        {
+            _particles.Spawn("Throw");
+        }
+
+        public void Throw()
+        {
+            if (_throwCooldown.IsReady && _swords > 1)
+            {
+                Animator.SetTrigger(ThrowKey);
+                _throwCooldown.SetCooldown();
+                _swords--;
+            }
+        }
+
+        public void MultipleThrow()
+        {
+            if (_swords == 1) return;
+            if (_multipleThrowCoroutine == null)
+            {
+                _multipleThrowCoroutine = StartCoroutine(OnMultipleThrow());
+            }
+        }
+
+        public void CancelMultipleThrow()
+        {
+            if(_multipleThrowCoroutine != null) StopCoroutine(_multipleThrowCoroutine);
+            _throwCooldown.Reset();
+            _multipleThrowCoroutine = null;
+        }
+
+        private IEnumerator OnMultipleThrow()
+        {
+            while (_swords > 1)
+            {
+                if (_throwCooldown.IsReady)
+                {
+                    _throwCooldown.Value /= 2f;
+                }
+                Throw();
+                yield return null;
+            }
+
+            _throwCooldown.Reset();
+            _multipleThrowCoroutine = null;
         }
     }
 }

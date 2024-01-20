@@ -29,5 +29,25 @@ public class HeroInputReader : MonoBehaviour
             _hero.Attack();
         }
     }
+
+    public void OnDoThrow()
+    {
+        
+    }
+
+    public void OnThrow(InputAction.CallbackContext context)
+    {
+        Debug.Log(context.started);
+        Debug.Log(context.performed);
+        if (context.canceled)
+        {
+            _hero.Throw();
+            _hero.CancelMultipleThrow();
+        }
+        else if (context.performed && _hero._swords >= 3)
+        {
+            _hero.MultipleThrow();
+        }
+    }
     
 }

@@ -23,6 +23,8 @@ namespace Scripts.Components
 
         public void ApplyDamage(int damageValue)
         {
+            if (_health <= 0) return;
+            
             if (_lastTakeDamage.AddSeconds(_immortalTime) < DateTime.Now)
             {
                 _lastTakeDamage = DateTime.Now;

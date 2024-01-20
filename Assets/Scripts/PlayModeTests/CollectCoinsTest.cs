@@ -31,7 +31,7 @@ namespace Tests
 
             var collectedCoins = GameObject.Find("GameSession").GetComponent<GameSession>().Data.Coins;
             
-            Assert.That(startCoins == 0 && collectedCoins == 1, $"Player can't collect silver coins! Number of coins: {collectedCoins}");
+            Assert.That(collectedCoins - startCoins == 1, $"Player can't collect silver coins! Number of coins: {collectedCoins}");
             Debug.Log($"Player collected silver coin! Number of coins: {collectedCoins}");
         }
         
@@ -48,7 +48,7 @@ namespace Tests
 
             var collectedCoins = GameObject.Find("GameSession").GetComponent<GameSession>().Data.Coins;
             
-            Assert.That(startCoins == 0 && collectedCoins == 10, $"Player can't collect coins! Number of coins: {collectedCoins}");
+            Assert.That(collectedCoins - startCoins == 10, $"Player can't collect coins! Number of coins: {collectedCoins}");
             Debug.Log($"Player collected golden coin! Number of coins: {collectedCoins}");
         }
     }

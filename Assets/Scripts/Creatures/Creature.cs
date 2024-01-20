@@ -66,7 +66,7 @@ namespace Scripts.Creatures
                 FallingDuration += Time.fixedDeltaTime;
             }
 
-            UpdateSpriteDirection();
+            UpdateSpriteDirection(Direction);
         }
         
         protected virtual float CalculateYVelocity()
@@ -89,7 +89,7 @@ namespace Scripts.Creatures
             return yVelocity + _jumpForce;
         }
         
-        private void UpdateSpriteDirection()
+        public void UpdateSpriteDirection(Vector2 direction)
         {
             var multiplier = _invertScale ? -1 : 1;
             if (Direction.x > 0)

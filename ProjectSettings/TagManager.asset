@@ -50,6 +50,12 @@ TagManager:
   - name: Background
     uniqueID: 1782495475
     locked: 0
+  - name: UnderUpBackGround
+    uniqueID: 3193123233
+    locked: 0
+  - name: UpBackGround
+    uniqueID: 2340098289
+    locked: 0
   - name: Props
     uniqueID: 1141187311
     locked: 0
