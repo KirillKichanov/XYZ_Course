@@ -5189,6 +5189,7 @@ GameObject:
   - component: {fileID: 7439359235183424170}
   - component: {fileID: 5207801418566549363}
   - component: {fileID: 2795372164492307829}
+  - component: {fileID: 8436289316850402254}
   m_Layer: 0
   m_Name: Sharky
   m_TagString: Enemy
@@ -5391,6 +5392,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8436289316850402254}
+        m_MethodName: CoinsSpawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onChange:
     m_PersistentCalls:
       m_Calls: []
@@ -5528,6 +5540,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _aliveCollider: {fileID: 9016153909220099046}
   _afterlifeCollider: {fileID: 5207801418566549363}
+--- !u!114 &8436289316850402254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9016153909220099064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be5c817692459245ab07d430db5b0af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coinsToSpawn: 3
+  _spawnRadius: 0.4
+  _silverCoin: {fileID: 8659805156670625656, guid: 65bb830d82e489146a2e2909fbc868a3,
+    type: 3}
+  _goldenCoin: {fileID: 4415234277601011099, guid: 2fa7c84fb60eff649991a6bf96af2679,
+    type: 3}
+  _goldenProbability: 0.3
 --- !u!1 &9016153909356916169
 GameObject:
   m_ObjectHideFlags: 0

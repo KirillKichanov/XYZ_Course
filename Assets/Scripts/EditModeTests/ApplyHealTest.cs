@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using NUnit.Framework;
 using Scripts.Components;
+using Scripts.Components.Health;
 using UnityEngine;
 using UnityEngine.TestTools;
 

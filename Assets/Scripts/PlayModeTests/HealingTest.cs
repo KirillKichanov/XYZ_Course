@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using Scripts.Components;
+using Scripts.Components.Health;
 using UnityEngine;
 using UnityEngine.TestTools;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using Scripts.Creatures;
+using Scripts.Creatures.Hero;
 
 namespace Tests
 {

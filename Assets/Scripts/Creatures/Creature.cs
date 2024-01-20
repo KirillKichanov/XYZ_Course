@@ -1,5 +1,7 @@
 ﻿using System;
 using Scripts.Components;
+using Scripts.Components.ColliderBased;
+using Scripts.Components.GoBased;
 using UnityEngine;
 using UnityEngine.Serialization;
 

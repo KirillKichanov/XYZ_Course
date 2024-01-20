@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Scripts.Creatures;
+using Scripts.Creatures.Hero;
 
 public class Coin : MonoBehaviour
 {

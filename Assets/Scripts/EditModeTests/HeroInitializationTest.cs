@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.HID;
 using UnityEngine.TestTools;
 using Scripts.Creatures;
+using Scripts.Creatures.Hero;
 
 namespace Tests
 {
