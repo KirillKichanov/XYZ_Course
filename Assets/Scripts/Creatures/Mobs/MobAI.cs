@@ -21,6 +21,7 @@ namespace Scripts.Creatures.Mobs
         private GameObject _target;
         
         private static readonly int IsDeadKey = Animator.StringToHash("is-dead");
+        private static readonly int IsDisappearKey = Animator.StringToHash("is-disappear");
 
         private SpawnListComponent _particles;
         private Creature _creature;
@@ -127,9 +128,22 @@ namespace Scripts.Creatures.Mobs
             _creature.SetDirection(Vector2.zero);
             _isDead = true;
             _animator.SetBool(IsDeadKey, true);
-            
+
             if (_current != null)
+            {
                 StopCoroutine(_current);
+            }
+            
+            StartState(CorpseDisappear());
+        }
+
+        private IEnumerator CorpseDisappear()
+        {
+            yield return new WaitForSeconds(2);
+            _animator.SetBool(IsDisappearKey, true);
+            yield return new WaitForSeconds(0.4f);
+            Destroy(gameObject);
+            StopCoroutine(_current);
         }
     }
 }

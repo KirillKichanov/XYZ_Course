@@ -5335,6 +5335,7 @@ MonoBehaviour:
   _unarmed: {fileID: 9100000, guid: aa97802a57846684bad1d0637fa91676, type: 2}
   _attack1Particles: {fileID: 8159702611937588995}
   _hitParticles: {fileID: 633838809}
+  _swords: 0
 --- !u!114 &9016153909220099045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5563,7 +5564,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -1334879473
   m_SortingLayer: 5
-  m_SortingOrder: 1
+  m_SortingOrder: 5
 --- !u!114 &641379974
 MonoBehaviour:
   m_ObjectHideFlags: 0

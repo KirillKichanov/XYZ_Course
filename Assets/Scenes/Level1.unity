@@ -1613,7 +1613,7 @@ PrefabInstance:
     - target: {fileID: 653689833688065902, guid: f4f1714901d0be14e8133e507274c52b,
         type: 3}
       propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnActivate
+      value: OnActivateMovement
       objectReference: {fileID: 0}
     - target: {fileID: 653689833688065902, guid: f4f1714901d0be14e8133e507274c52b,
         type: 3}
@@ -6555,7 +6555,7 @@ SortingGroup:
   m_GameObject: {fileID: 531999360}
   m_Enabled: 1
   m_SortingLayerID: 1141187311
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
 --- !u!114 &537192549 stripped
 MonoBehaviour:
@@ -6710,7 +6710,7 @@ SortingGroup:
   m_GameObject: {fileID: 542768571}
   m_Enabled: 1
   m_SortingLayerID: 1141187311
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
 --- !u!1001 &549684044
 PrefabInstance:
@@ -7330,7 +7330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 654061000}
   - component: {fileID: 654060999}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ConfinerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8366,7 +8366,7 @@ SortingGroup:
   m_GameObject: {fileID: 799134907}
   m_Enabled: 1
   m_SortingLayerID: 1141187311
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
 --- !u!114 &806884915 stripped
 MonoBehaviour:
@@ -8497,7 +8497,7 @@ SortingGroup:
   m_GameObject: {fileID: 818909463}
   m_Enabled: 1
   m_SortingLayerID: 1141187311
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
 --- !u!1 &830657913
 GameObject:
@@ -8962,7 +8962,7 @@ SortingGroup:
   m_GameObject: {fileID: 874665600}
   m_Enabled: 1
   m_SortingLayerID: 1141187311
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
 --- !u!4 &880376194 stripped
 Transform:
@@ -10966,7 +10966,7 @@ SortingGroup:
   m_GameObject: {fileID: 1241310208}
   m_Enabled: 1
   m_SortingLayerID: 1141187311
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
 --- !u!4 &1241310210
 Transform:
@@ -11677,7 +11677,7 @@ SortingGroup:
   m_GameObject: {fileID: 1326981832}
   m_Enabled: 1
   m_SortingLayerID: 1141187311
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
 --- !u!1001 &1355553786
 PrefabInstance:
@@ -13330,7 +13330,7 @@ SortingGroup:
   m_GameObject: {fileID: 1609660730}
   m_Enabled: 1
   m_SortingLayerID: 1141187311
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
 --- !u!1001 &1616274373
 PrefabInstance:
@@ -13794,7 +13794,7 @@ SortingGroup:
   m_GameObject: {fileID: 1704806715}
   m_Enabled: 1
   m_SortingLayerID: 1141187311
-  m_SortingLayer: 2
+  m_SortingLayer: 4
   m_SortingOrder: 0
 --- !u!1001 &1722103634
 PrefabInstance:

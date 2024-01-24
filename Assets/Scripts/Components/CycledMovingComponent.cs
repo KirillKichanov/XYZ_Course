@@ -47,7 +47,7 @@ namespace Scripts.Components
             transform.position = Vector3.MoveTowards(transform.position, _currentTarget, _speed * Time.deltaTime);
         }
 
-        public void OnActivate()
+        public void OnActivateMovement()
         {
             _isActive = !_isActive;
         }
