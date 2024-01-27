@@ -12,7 +12,7 @@ namespace Scripts.Creatures.Mobs
         
         [SerializeField] private Animator[] _turrets;
         private Animator _currentTurret;
-        private int _currentIndex;
+        private int _currentIndex = 0;
         
         private static readonly int Shoot = Animator.StringToHash("shoot");
         

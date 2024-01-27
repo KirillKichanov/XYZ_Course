@@ -2,6 +2,7 @@
 using Scripts.Components;
 using Scripts.Components.ColliderBased;
 using Scripts.Components.GoBased;
+using Scripts.Components.Movement;
 using UnityEngine;
 using UnityEngine.Serialization;
 

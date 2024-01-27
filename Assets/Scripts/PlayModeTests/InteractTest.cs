@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using Scripts.Components;
 using Scripts.Components.Interactions;
+using Scripts.Components.Movement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
