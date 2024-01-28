@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 8659805156670625660}
   - component: {fileID: 2055224397}
   - component: {fileID: 7845725576324400}
-  - component: {fileID: 197922158595431911}
   - component: {fileID: 6324787108946063668}
   - component: {fileID: 3933458676637537674}
+  - component: {fileID: 3664595060622085786}
   m_Layer: 10
   m_Name: SilverCoin
   m_TagString: Silver
@@ -194,7 +194,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 197922158595431911}
+      - m_Target: {fileID: 0}
         m_MethodName: Collect
         m_Mode: 0
         m_Arguments:
@@ -216,19 +216,6 @@ MonoBehaviour:
           m_StringArgument: Destroy
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &197922158595431911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8659805156670625656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caac3a65e0f68ef44bd7bd32f2a3b133, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _amount: 1
 --- !u!114 &6324787108946063668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,3 +252,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3664595060622085786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8659805156670625656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bba952f2c914633aa24dea22d34accd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: Coin
+  _count: 1

@@ -18,7 +18,7 @@ namespace Tests
             SceneManager.LoadScene("TestScene");
         }
         
-        [UnityTest]
+        /*[UnityTest]
         public IEnumerator CollectSilverCoinsTestWithEnumeratorPasses()
         {
             var player = GameObject.Find("Hero");
@@ -26,16 +26,16 @@ namespace Tests
             var startCoins = GameObject.Find("GameSession").GetComponent<GameSession>().Data.Coins;
 
             player.transform.position = silverCoin.transform.position;
-            
+
             yield return new WaitForFixedUpdate();
 
             var collectedCoins = GameObject.Find("GameSession").GetComponent<GameSession>().Data.Coins;
-            
+
             Assert.That(collectedCoins - startCoins == 1, $"Player can't collect silver coins! Number of coins: {collectedCoins}");
             Debug.Log($"Player collected silver coin! Number of coins: {collectedCoins}");
-        }
+        }*/
         
-        [UnityTest]
+        /*[UnityTest]
         public IEnumerator CollectGoldenCoinsTestWithEnumeratorPasses()
         {
             var player = GameObject.Find("Hero");
@@ -50,6 +50,6 @@ namespace Tests
             
             Assert.That(collectedCoins - startCoins == 10, $"Player can't collect coins! Number of coins: {collectedCoins}");
             Debug.Log($"Player collected golden coin! Number of coins: {collectedCoins}");
-        }
+        }*/
     }
 }

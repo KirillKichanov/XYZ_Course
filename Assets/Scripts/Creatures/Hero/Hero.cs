@@ -33,6 +33,9 @@ namespace Scripts.Creatures.Hero
         private bool _doubleJumpUsed;
         private Coroutine _multipleThrowCoroutine;
         
+        private int SwordCount => _session.Data.Inventory.Count("Sword");
+        private int CoinCount => _session.Data.Inventory.Count("Coin");
+        
         private static readonly int ThrowKey = Animator.StringToHash("throw");
 
         
@@ -95,17 +98,10 @@ namespace Scripts.Creatures.Hero
             }
             return yVelocity;
         }
-
-        public void CoinCollect(int Amount)
-        {
-            _session.Data.Coins += Amount;
-            Debug.Log(_session.Data.Coins);
-        }
-
         public override void TakeDamage()
         {
             base.TakeDamage();
-            if (_session.Data.Coins > 0)
+            if (CoinCount > 0)
             {
                 SpawnCoins();
             }
@@ -113,8 +109,8 @@ namespace Scripts.Creatures.Hero
 
         private void SpawnCoins()
         {
-            var numCoinsToDispose = Math.Min(_session.Data.Coins, 5);
-            _session.Data.Coins -= numCoinsToDispose;
+            var numCoinsToDispose = Math.Min(CoinCount, 5);
+            _session.Data.Inventory.Remove("Coin", numCoinsToDispose);
 
             var burst = _hitParticles.emission.GetBurst(0);
             burst.count = numCoinsToDispose;
@@ -134,22 +130,21 @@ namespace Scripts.Creatures.Hero
             _attack1Particles.Spawn();
         }
 
-        public void ArmHero()
-        {
-            _session.Data.isArmed = true;
-            UpdateHeroWeapon();
-        }
-
         public override void Attack()
         {
-            if (!_session.Data.isArmed) return;
+            if (SwordCount <= 0) return;
 
             base.Attack();
         }
 
         private void UpdateHeroWeapon()
         {
-            Animator.runtimeAnimatorController = _session.Data.isArmed ? _armed : _unarmed;
+            Animator.runtimeAnimatorController = SwordCount > 0 ? _armed : _unarmed;
+        }
+
+        public void AddInInventory(string id, int value)
+        {
+            
         }
 
         public void OnDoThrow()

@@ -9,9 +9,8 @@ namespace Scripts.Model.Data
     public class PlayerData
     {
         [SerializeField] private InventoryData _inventory;
-        
-        public int Coins;
+
+        public InventoryData Inventory => _inventory;
         public int Hp;
-        public bool isArmed;
     }
 }

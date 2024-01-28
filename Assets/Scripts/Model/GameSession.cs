@@ -37,7 +37,7 @@ namespace Scripts.Model
 
         public void SaveState()
         {
-            _savedData = new PlayerData(){ Coins = _data.Coins, Hp = _data.Hp, isArmed = _data.isArmed};
+            //_savedData = new PlayerData(){ Coins = _data.Coins, Hp = _data.Hp, isArmed = _data.isArmed};
         }
 
         public bool HasSavedState()
@@ -47,7 +47,7 @@ namespace Scripts.Model
 
         public void LoadSavedState()
         {
-            _data = new PlayerData(){ Coins = _savedData.Coins, Hp = _savedData.Hp, isArmed = _savedData.isArmed};
+            //_data = new PlayerData(){ Coins = _savedData.Coins, Hp = _savedData.Hp, isArmed = _savedData.isArmed};
         }
 
         public static GameSession Get()
