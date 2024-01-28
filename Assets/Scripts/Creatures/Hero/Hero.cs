@@ -43,12 +43,6 @@ namespace Scripts.Creatures.Hero
             private set { _jumpForce = value; }
         } */
 
-
-        protected override void Awake()
-        {
-            base.Awake();
-        }
-
         private void Start()
         {
             _session = FindObjectOfType<GameSession>();

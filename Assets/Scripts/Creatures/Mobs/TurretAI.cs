@@ -1,4 +1,5 @@
 ﻿using System;
+using Scripts.Components.ColliderBased;
 using Scripts.Components.GoBased;
 using Scripts.Utils;
 using UnityEngine;
@@ -9,6 +10,7 @@ namespace Scripts.Creatures.Mobs
     {
         [SerializeField] public bool _isActive;
         [SerializeField] private Cooldown _shootCooldown;
+        [SerializeField] private LayerCheck _vision;
         
         [SerializeField] private Animator[] _turrets;
         private Animator _currentTurret;
@@ -24,7 +26,7 @@ namespace Scripts.Creatures.Mobs
 
         private void Update()
         {
-            if (_isActive && _shootCooldown.IsReady) 
+            if (_vision.IsTouchingLayer && _isActive && _shootCooldown.IsReady) 
             {
                 RangeAttack();
             }
