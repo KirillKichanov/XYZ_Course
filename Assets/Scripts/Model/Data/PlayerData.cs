@@ -12,5 +12,11 @@ namespace Scripts.Model.Data
 
         public InventoryData Inventory => _inventory;
         public int Hp;
+
+        public PlayerData Clone()
+        {
+            var json = JsonUtility.ToJson(this);
+            return JsonUtility.FromJson<PlayerData>(json);
+        }
     }
 }

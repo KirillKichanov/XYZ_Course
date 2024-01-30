@@ -50,10 +50,22 @@ namespace Scripts.Creatures.Hero
         {
             _session = FindObjectOfType<GameSession>();
             var health = GetComponent<HealthComponent>();
+            _session.Data.Inventory.OnChanged += OnInventoryChanged;
+            
             health.SetHealth(_session.Data.Hp);
-
             UpdateHeroWeapon();
             _throwCooldown.Initialize();
+        }
+
+        private void OnDestroy()
+        {
+            _session.Data.Inventory.OnChanged -= OnInventoryChanged;
+        }
+
+        private void OnInventoryChanged(string id, int value)
+        {
+            if(id == "Sword")
+                UpdateHeroWeapon();
         }
         
         public void OnHealthChanged(int currentHealth)
@@ -144,7 +156,7 @@ namespace Scripts.Creatures.Hero
 
         public void AddInInventory(string id, int value)
         {
-            
+            _session.Data.Inventory.Add(id, value);
         }
 
         public void OnDoThrow()

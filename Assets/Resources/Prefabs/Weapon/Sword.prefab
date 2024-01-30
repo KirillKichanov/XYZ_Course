@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 3841527062771068719}
   - component: {fileID: 3841527062771068714}
   - component: {fileID: 3841527062771068715}
-  - component: {fileID: 3841527062771068716}
   - component: {fileID: 1199994531148639214}
+  - component: {fileID: 704684293227757698}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -160,8 +160,8 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3841527062771068716}
-        m_MethodName: ArmHero
+      - m_Target: {fileID: 704684293227757698}
+        m_MethodName: Add
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -182,18 +182,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3841527062771068716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3841527062771068752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 959f5b78d89547afa789c3c9480fd99e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1199994531148639214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,3 +194,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f978e3409fae084a8e19c5df45b6895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &704684293227757698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3841527062771068752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bba952f2c914633aa24dea22d34accd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: Sword
+  _count: 1

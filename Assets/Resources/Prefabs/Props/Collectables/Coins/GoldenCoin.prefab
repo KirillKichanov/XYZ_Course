@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3181459810858274893}
   - component: {fileID: 8619358596548409538}
   - component: {fileID: 265577452991636097}
+  - component: {fileID: 5602387029841710230}
   m_Layer: 10
   m_Name: GoldenCoin
   m_TagString: Gold
@@ -178,7 +179,7 @@ MonoBehaviour:
   _tag: Player
   _layer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -193,8 +194,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: Collect
+      - m_Target: {fileID: 5602387029841710230}
+        m_MethodName: Add
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -251,3 +252,17 @@ MonoBehaviour:
   _frequency: 3
   _amplitude: 0.1
   _randomize: 1
+--- !u!114 &5602387029841710230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4415234277601011099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bba952f2c914633aa24dea22d34accd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: Coin
+  _count: 10

@@ -10,6 +10,10 @@ namespace Scripts.Model.Data
     {
         [SerializeField] private List<InventoryItemData> _inventory = new List<InventoryItemData>();
 
+        public delegate void OnInventoryChanged(string id, int value);
+
+        public OnInventoryChanged OnChanged;
+
         public void Add(string id, int value)
         {
             if(value <= 0) return;
@@ -25,6 +29,8 @@ namespace Scripts.Model.Data
             }
             
             item.Value += value;
+            
+            OnChanged?.Invoke(id, Count(id));
         }
 
         public void Remove(string id, int value)
@@ -39,6 +45,8 @@ namespace Scripts.Model.Data
 
             if (item.Value <= 0)
                 _inventory.Remove(item);
+            
+            OnChanged?.Invoke(id, Count(id));
         }
 
         private InventoryItemData GetItem(string id)
@@ -68,7 +76,7 @@ namespace Scripts.Model.Data
     [Serializable]
     public class InventoryItemData
     {
-        public string Id;
+        [InventoryId] public string Id;
         public int Value;
 
         public InventoryItemData(string id)
