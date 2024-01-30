@@ -26,18 +26,18 @@ namespace Tests
             var player = GameObject.Find("Hero");
             var heroComponent = player.GetComponent<Hero>();
             var healthComponent = player.GetComponent<HealthComponent>();
-            var startHealth = healthComponent.health;
+            var startHealth = healthComponent.Health;
             var potion = GameObject.Find("HealingPotion").transform.position;
             
             healthComponent.ApplyDamage(5);
             heroComponent.TakeDamage();
-            var damagedHealth = healthComponent.health;
+            var damagedHealth = healthComponent.Health;
             
             player.transform.position = potion;
             
             yield return new WaitForFixedUpdate();
             
-            var potionHeal = healthComponent.health;
+            var potionHeal = healthComponent.Health;
             Assert.That(potionHeal > damagedHealth && potionHeal == startHealth, "Player can't heal by potion!");
             Debug.Log("Player's heal by potion successful!");
         }

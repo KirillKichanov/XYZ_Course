@@ -14,12 +14,12 @@ namespace Tests
         {
             var player = LoadPrefabHelper.LoadHero();
             var healthComponent = player.GetComponent<HealthComponent>();
-            var startHealth = healthComponent.health;
+            var startHealth = healthComponent.Health;
             
             healthComponent.ApplyDamage(1);
-            var damagedHealth = healthComponent.health;
+            var damagedHealth = healthComponent.Health;
             healthComponent.ApplyHeal(1);
-            var heal = healthComponent.health;
+            var heal = healthComponent.Health;
             
             Assert.That(heal > damagedHealth && heal == startHealth, "Player can't heal!");
             Debug.Log("Player's heal successful!");

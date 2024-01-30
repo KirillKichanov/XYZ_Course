@@ -18,8 +18,8 @@ namespace Scripts.Components.Health
         [SerializeField] private HealthChangeEvent _onChange;
 
         private DateTime _lastTakeDamage;
-        public int health => _health;
-        public int maxHealth => _maxHealth;
+        public int Health => _health;
+        public int MaxHealth => _maxHealth;
 
         public void ApplyDamage(int damageValue)
         {

@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5637177436334606193}
   - component: {fileID: 2521902270293247834}
-  - component: {fileID: 1736668812}
   - component: {fileID: 1736668815}
   - component: {fileID: 1736668813}
   - component: {fileID: 5294303284825582875}
   - component: {fileID: 1736668816}
+  - component: {fileID: 8642822415714163699}
+  - component: {fileID: 8423991999444637758}
   m_Layer: 11
   m_Name: HealingPotion
   m_TagString: Untagged
@@ -87,20 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1736668812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3147366104554287444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc6b112a25d28ad42a8749473f75974d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 0
-  _heal: 5
 --- !u!58 &1736668815
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -130,15 +117,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tag: Player
+  _layer:
+    serializedVersion: 2
+    m_Bits: 0
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1736668812}
-        m_MethodName: ApplyHeal
-        m_Mode: 2
+      - m_Target: {fileID: 8642822415714163699}
+        m_MethodName: Add
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1736668815}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -186,10 +187,10 @@ MonoBehaviour:
   - _name: Destroy
     _loop: 0
     sprites:
-    - {fileID: 6040734443530017722, guid: ce9114ccb6cc4654d8092b256f0c2e40, type: 3}
-    - {fileID: 8167133005111728920, guid: ce9114ccb6cc4654d8092b256f0c2e40, type: 3}
-    - {fileID: 2014349484240403859, guid: ce9114ccb6cc4654d8092b256f0c2e40, type: 3}
-    - {fileID: 6326803469982491369, guid: ce9114ccb6cc4654d8092b256f0c2e40, type: 3}
+    - {fileID: -4986890610287934012, guid: f04223755fac60e4c8eaf10cfbf9d4b8, type: 3}
+    - {fileID: 6143208460787649835, guid: f04223755fac60e4c8eaf10cfbf9d4b8, type: 3}
+    - {fileID: 7609282858266732271, guid: f04223755fac60e4c8eaf10cfbf9d4b8, type: 3}
+    - {fileID: -6288512792030432889, guid: f04223755fac60e4c8eaf10cfbf9d4b8, type: 3}
     _allowNextClip: 0
     _onComplete:
       m_PersistentCalls:
@@ -217,3 +218,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f978e3409fae084a8e19c5df45b6895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8642822415714163699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3147366104554287444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bba952f2c914633aa24dea22d34accd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: HealingPotion
+  _count: 1
+--- !u!210 &8423991999444637758
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3147366104554287444}
+  m_Enabled: 1
+  m_SortingLayerID: 1141187311
+  m_SortingLayer: 4
+  m_SortingOrder: 0

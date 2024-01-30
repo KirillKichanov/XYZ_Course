@@ -23,14 +23,14 @@ namespace Tests
         {
             var player = GameObject.Find("Hero");
             var healthComponent = player.GetComponent<HealthComponent>();
-            var startHealth = healthComponent.health;
+            var startHealth = healthComponent.Health;
             var spikes = GameObject.Find("Spikes").transform.position;
             
             player.transform.position = spikes;
             
             yield return new WaitForFixedUpdate();
 
-            var spikesDamage = healthComponent.health;
+            var spikesDamage = healthComponent.Health;
             Assert.That(startHealth > spikesDamage, "Player can't take damage by spikes!");
             Debug.Log("Player takes damage by spikes successfully");
         }

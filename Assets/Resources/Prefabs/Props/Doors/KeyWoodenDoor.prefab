@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8022781665070523574}
   - component: {fileID: 6028889913784028174}
   m_Layer: 11
-  m_Name: KeyWoodenDoor 1
+  m_Name: KeyWoodenDoor
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -286,8 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 217eede650fc4cc0abc7560d1d309773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: Key
-  _count: 1
+  _required: []
   _removeAfterUse: 1
   _onSuccess:
     m_PersistentCalls:

@@ -20,38 +20,50 @@ namespace Scripts.Creatures.Hero
 
         [SerializeField] private CheckCircleOverlap _interactionCheck;
 
+        [Header("Cooldowns")] 
         [SerializeField] private Cooldown _throwCooldown;
+
+        [Header("Animators")] 
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _unarmed;
-        
+
+        [Header("Particles")] 
         [SerializeField] private SpawnComponent _attack1Particles;
         [SerializeField] private ParticleSystem _hitParticles;
 
+        [Header("ItemsPower")] 
         [SerializeField] public int _swords;
+        [SerializeField] private int _healingPotionPower = 5;
 
+        //**********
+        // DoubleJump
+        //**********
         private bool _allowDoubleJump;
         private bool _doubleJumpUsed;
+
+        //**********
+        // Coroutines
+        //**********
         private Coroutine _multipleThrowCoroutine;
-        
+
+        //**********
+        // Inventory
+        //**********
         private int SwordCount => _session.Data.Inventory.Count("Sword");
         private int CoinCount => _session.Data.Inventory.Count("Coin");
-        
-        private static readonly int ThrowKey = Animator.StringToHash("throw");
+        private int HealingPotionCount => _session.Data.Inventory.Count("HealingPotion");
 
-        
-        //public int Coins => _coins;//так доставать приватные переменные в тест
-        /* public float JumpForce
-        {
-            get { return _jumpForce; } property C#
-            private set { _jumpForce = value; }
-        } */
+        //**********
+        //Animator Keys
+        //**********
+        private static readonly int ThrowKey = Animator.StringToHash("throw");
 
         private void Start()
         {
             _session = FindObjectOfType<GameSession>();
             var health = GetComponent<HealthComponent>();
             _session.Data.Inventory.OnChanged += OnInventoryChanged;
-            
+
             health.SetHealth(_session.Data.Hp);
             UpdateHeroWeapon();
             _throwCooldown.Initialize();
@@ -64,10 +76,10 @@ namespace Scripts.Creatures.Hero
 
         private void OnInventoryChanged(string id, int value)
         {
-            if(id == "Sword")
+            if (id == "Sword")
                 UpdateHeroWeapon();
         }
-        
+
         public void OnHealthChanged(int currentHealth)
         {
             _session.Data.Hp = currentHealth;
@@ -76,7 +88,7 @@ namespace Scripts.Creatures.Hero
         protected override void Update()
         {
             base.Update();
-            
+
             var isGrounded = _groundCheck.IsTouchingLayer;
             if (IsGrounded == false && isGrounded)
             {
@@ -108,8 +120,10 @@ namespace Scripts.Creatures.Hero
                 _doubleJumpUsed = true;
                 _allowDoubleJump = false;
             }
+
             return yVelocity;
         }
+
         public override void TakeDamage()
         {
             base.TakeDamage();
@@ -185,7 +199,7 @@ namespace Scripts.Creatures.Hero
 
         public void CancelMultipleThrow()
         {
-            if(_multipleThrowCoroutine != null) StopCoroutine(_multipleThrowCoroutine);
+            if (_multipleThrowCoroutine != null) StopCoroutine(_multipleThrowCoroutine);
             _throwCooldown.Reset();
             _multipleThrowCoroutine = null;
         }
@@ -198,12 +212,29 @@ namespace Scripts.Creatures.Hero
                 {
                     _throwCooldown.Value /= 2f;
                 }
+
                 Throw();
                 yield return null;
             }
 
             _throwCooldown.Reset();
             _multipleThrowCoroutine = null;
+        }
+
+        public void UseHealingPotion()
+        {
+            var healthComponent = GetComponent<HealthComponent>();
+            if (HealingPotionCount >= 1 && healthComponent.Health < healthComponent.MaxHealth)
+            {
+                healthComponent.ApplyHeal(_healingPotionPower);
+                _session.Data.Inventory.Remove("HealingPotion", 1);
+                _particles.Spawn("Heal");
+            }
+            else if (HealingPotionCount >= 1 && healthComponent.Health == healthComponent.MaxHealth)
+            {
+                //Placeholder for tooltip "HP is full"
+                Debug.Log("Your HP is full!");
+            }
         }
     }
 }

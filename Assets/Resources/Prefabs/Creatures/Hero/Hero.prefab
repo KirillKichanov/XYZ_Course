@@ -5196,6 +5196,52 @@ MonoBehaviour:
   _target: {fileID: 939422477021708822}
   _prefab: {fileID: 4615787848076337411, guid: 58b871c75c3615a4f9c454d2f6687128, type: 3}
   _invertXScale: 0
+--- !u!1 &7841416068020002747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7456995135903942851}
+  - component: {fileID: 5920588079549569900}
+  m_Layer: 9
+  m_Name: HealingEffectPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7456995135903942851
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7841416068020002747}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.635, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9016153909220099066}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5920588079549569900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7841416068020002747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ddf5c9b00151624c860b921a062a5fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 7456995135903942851}
+  _prefab: {fileID: 7569124007917227106, guid: 2040862319bed4349864a4921cc556b3, type: 3}
+  _invertXScale: 0
 --- !u!1 &9016153909220099064
 GameObject:
   m_ObjectHideFlags: 0
@@ -5243,6 +5289,7 @@ Transform:
   - {fileID: 4290302330063734947}
   - {fileID: 1798778099}
   - {fileID: 939422477021708822}
+  - {fileID: 7456995135903942851}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5336,6 +5383,7 @@ MonoBehaviour:
   _attack1Particles: {fileID: 8159702611937588995}
   _hitParticles: {fileID: 633838809}
   _swords: 0
+  _healingPotionPower: 5
 --- !u!114 &9016153909220099045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5422,6 +5470,21 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 901466d9-3e21-4ab8-9c00-4c2fbbeef7c2
     m_ActionName: Hero/Throw[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9016153909220099067}
+        m_MethodName: OnHealingPotion
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c7908811-bf46-43a1-8fb0-accc3ed15fa7
+    m_ActionName: Hero/Healing[/Keyboard/1]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -5598,6 +5661,8 @@ MonoBehaviour:
     Component: {fileID: 326529982}
   - Id: Throw
     Component: {fileID: 3853290027214786325}
+  - Id: Heal
+    Component: {fileID: 5920588079549569900}
 --- !u!1 &9016153909356916169
 GameObject:
   m_ObjectHideFlags: 0

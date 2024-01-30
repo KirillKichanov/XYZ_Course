@@ -33,15 +33,13 @@ namespace Scripts.Creatures.Hero
             }
         }
 
-        public void OnDoThrow()
+        /*public void OnDoThrow()
         {
 
-        }
+        }*/
 
         public void OnThrow(InputAction.CallbackContext context)
         {
-            Debug.Log(context.started);
-            Debug.Log(context.performed);
             if (context.canceled)
             {
                 _hero.Throw();
@@ -50,6 +48,14 @@ namespace Scripts.Creatures.Hero
             else if (context.performed && _hero._swords >= 3)
             {
                 _hero.MultipleThrow();
+            }
+        }
+        
+        public void OnHealingPotion(InputAction.CallbackContext context)
+        {
+            if (context.canceled)
+            {
+                _hero.UseHealingPotion();
             }
         }
 
