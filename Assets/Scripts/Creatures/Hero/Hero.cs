@@ -32,7 +32,6 @@ namespace Scripts.Creatures.Hero
         [SerializeField] private ParticleSystem _hitParticles;
 
         [Header("ItemsPower")] 
-        [SerializeField] public int _swords;
         [SerializeField] private int _healingPotionPower = 5;
 
         //**********
@@ -54,9 +53,15 @@ namespace Scripts.Creatures.Hero
         private int HealingPotionCount => _session.Data.Inventory.Count("HealingPotion");
 
         //**********
-        //Animator Keys
+        // Animator Keys
         //**********
         private static readonly int ThrowKey = Animator.StringToHash("throw");
+        
+        //**********
+        // Property
+        //**********
+        public int SwordsInInventory => SwordCount;
+        
 
         private void Start()
         {
@@ -77,7 +82,10 @@ namespace Scripts.Creatures.Hero
         private void OnInventoryChanged(string id, int value)
         {
             if (id == "Sword")
+            {
                 UpdateHeroWeapon();
+                Sounds.Play("Sword");
+            }
         }
 
         public void OnHealthChanged(int currentHealth)
@@ -119,6 +127,7 @@ namespace Scripts.Creatures.Hero
             {
                 _doubleJumpUsed = true;
                 _allowDoubleJump = false;
+                DoJumpVfx();
             }
 
             return yVelocity;
@@ -176,21 +185,22 @@ namespace Scripts.Creatures.Hero
         public void OnDoThrow()
         {
             _particles.Spawn("Throw");
+            Sounds.Play("Range");
         }
 
         public void Throw()
         {
-            if (_throwCooldown.IsReady && _swords > 1)
+            if (_throwCooldown.IsReady && SwordCount > 1)
             {
                 Animator.SetTrigger(ThrowKey);
                 _throwCooldown.SetCooldown();
-                _swords--;
+                _session.Data.Inventory.Remove("Sword", 1);
             }
         }
 
         public void MultipleThrow()
         {
-            if (_swords == 1) return;
+            if (SwordCount == 1) return;
             if (_multipleThrowCoroutine == null)
             {
                 _multipleThrowCoroutine = StartCoroutine(OnMultipleThrow());
@@ -206,7 +216,7 @@ namespace Scripts.Creatures.Hero
 
         private IEnumerator OnMultipleThrow()
         {
-            while (_swords > 1)
+            while (SwordCount > 1)
             {
                 if (_throwCooldown.IsReady)
                 {

@@ -27,9 +27,9 @@ namespace Scripts.Model.Data
                 item = new InventoryItemData(id);
                 _inventory.Add(item);
             }
-            
+
             item.Value += value;
-            
+
             OnChanged?.Invoke(id, Count(id));
         }
 

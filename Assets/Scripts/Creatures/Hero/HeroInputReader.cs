@@ -45,7 +45,7 @@ namespace Scripts.Creatures.Hero
                 _hero.Throw();
                 _hero.CancelMultipleThrow();
             }
-            else if (context.performed && _hero._swords >= 3)
+            else if (context.performed && _hero.SwordsInInventory >= 3)
             {
                 _hero.MultipleThrow();
             }

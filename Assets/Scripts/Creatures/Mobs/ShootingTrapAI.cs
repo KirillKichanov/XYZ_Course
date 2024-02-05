@@ -1,4 +1,5 @@
 ﻿using System;
+using Scripts.Components.Audio;
 using Scripts.Components.ColliderBased;
 using Scripts.Components.GoBased;
 using Scripts.Utils;
@@ -21,13 +22,16 @@ namespace Scripts.Creatures.Mobs
 
         private static readonly int Melee = Animator.StringToHash("melee");
         private static readonly int Range = Animator.StringToHash("range");
-
+        
+        private PlaySoundsComponent Sounds;
+        
         private Animator _animator;
 
 
         private void Awake()
         {
             _animator = GetComponent<Animator>();
+            Sounds = GetComponent<PlaySoundsComponent>();
         }
 
         private void Update()
@@ -35,12 +39,14 @@ namespace Scripts.Creatures.Mobs
             if (_vision.IsTouchingLayer && _meleeCanAttack.IsTouchingLayer && _meleeCooldown.IsReady)
             {
                 MeleeAttack();
+                Sounds.Play("Melee");
                 return;
             }
 
             if (_vision.IsTouchingLayer && _rangeCooldown.IsReady && !_meleeCanAttack.IsTouchingLayer)
             {
                 RangeAttack();
+                Sounds.Play("Range");
             }
         }
 

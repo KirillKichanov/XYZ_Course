@@ -1,4 +1,5 @@
 ﻿using Scripts.Creatures.Hero;
+using Scripts.Model.Data;
 using Scripts.Model.Definitions;
 using UnityEngine;
 

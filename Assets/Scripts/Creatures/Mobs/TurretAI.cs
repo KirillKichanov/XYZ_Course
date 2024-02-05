@@ -1,4 +1,5 @@
 ﻿using System;
+using Scripts.Components.Audio;
 using Scripts.Components.ColliderBased;
 using Scripts.Components.GoBased;
 using Scripts.Utils;
@@ -17,11 +18,14 @@ namespace Scripts.Creatures.Mobs
         private int _currentIndex = 0;
         
         private static readonly int Shoot = Animator.StringToHash("shoot");
+
+        private PlaySoundsComponent Sounds;
         
         private void Awake()
         {
             _currentIndex = 0;
             _turrets = GetComponentsInChildren<Animator>();
+            Sounds = GetComponent<PlaySoundsComponent>();
         }
 
         private void Update()
@@ -39,6 +43,7 @@ namespace Scripts.Creatures.Mobs
             if (_currentTurret != null)
             {
                 _currentTurret.SetTrigger(Shoot);
+                Sounds.Play("Range");
                 _shootCooldown.SetCooldown();
             }
             

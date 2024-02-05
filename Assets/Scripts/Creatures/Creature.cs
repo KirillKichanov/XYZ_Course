@@ -1,5 +1,6 @@
 ﻿using System;
 using Scripts.Components;
+using Scripts.Components.Audio;
 using Scripts.Components.ColliderBased;
 using Scripts.Components.GoBased;
 using Scripts.Components.Movement;
@@ -24,6 +25,7 @@ namespace Scripts.Creatures
         protected Rigidbody2D Rigidbody;
         protected Vector2 Direction;
         protected Animator Animator;
+        protected PlaySoundsComponent Sounds;
         protected bool IsGrounded;
         protected float FallingDuration;
         
@@ -42,6 +44,7 @@ namespace Scripts.Creatures
         {
             Rigidbody = GetComponent<Rigidbody2D>();
             Animator = GetComponent<Animator>();
+            Sounds = GetComponent<PlaySoundsComponent>();
         }
 
         public void SetDirection(Vector2 direction)
@@ -88,8 +91,14 @@ namespace Scripts.Creatures
             if (IsJumpPerformed) return yVelocity;
             if (!AllowJump()) return yVelocity;
     
-            _particles.Spawn("Jump");
+            DoJumpVfx();
             return yVelocity + _jumpForce;
+        }
+
+        protected void DoJumpVfx()
+        {
+            _particles.Spawn("Jump");
+            Sounds.Play("Jump");
         }
         
         public void UpdateSpriteDirection(Vector2 direction)
@@ -114,6 +123,7 @@ namespace Scripts.Creatures
         public virtual void Attack()
         {
             Animator.SetTrigger(AttackKey);
+            Sounds.Play("Melee");
         }
         
         public void OnDoAttack()
