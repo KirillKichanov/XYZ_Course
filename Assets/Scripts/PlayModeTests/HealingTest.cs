@@ -24,6 +24,7 @@ namespace Tests
         public IEnumerator PotionHealWithEnumeratorPasses()
         {
             var player = GameObject.Find("Hero");
+            var keyboard = InputSystem.AddDevice<Keyboard>();
             var heroComponent = player.GetComponent<Hero>();
             var healthComponent = player.GetComponent<HealthComponent>();
             var startHealth = healthComponent.Health;
@@ -37,6 +38,11 @@ namespace Tests
             
             yield return new WaitForFixedUpdate();
             
+            Press(keyboard.qKey);
+            Release(keyboard.qKey);
+            
+            yield return new WaitForFixedUpdate();
+
             var potionHeal = healthComponent.Health;
             Assert.That(potionHeal > damagedHealth && potionHeal == startHealth, "Player can't heal by potion!");
             Debug.Log("Player's heal by potion successful!");
