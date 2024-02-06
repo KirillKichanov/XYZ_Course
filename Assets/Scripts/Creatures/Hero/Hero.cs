@@ -7,6 +7,7 @@ using Scripts.Components.ColliderBased;
 using Scripts.Components.GoBased;
 using Scripts.Components.Health;
 using Scripts.Model;
+using Scripts.Model.Data;
 using Scripts.Utils;
 using UnityEditor.Animations;
 using UnityEngine;
@@ -14,7 +15,7 @@ using UnityEngine.Serialization;
 
 namespace Scripts.Creatures.Hero
 {
-    public class Hero : Creature
+    public class Hero : Creature, ICanAddInInventory
     {
         private GameSession _session;
 
