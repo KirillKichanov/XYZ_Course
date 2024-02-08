@@ -10,6 +10,7 @@ namespace Scripts.Creatures.Mobs.Patrolling
         private Rigidbody2D _rigidbody;
         
         [SerializeField] private Collider2D _creatureCollider;
+        [SerializeField] private float _onPointWaiting;
         
         private void Awake()
         {
@@ -29,10 +30,14 @@ namespace Scripts.Creatures.Mobs.Patrolling
                 
                 if (direction.x < 0f && !Physics2D.Raycast(leftOrigin, Vector2.down, maxDistance, layerMask))
                 {
+                    _creature.SetDirection(new Vector3(0,0,0));
+                    yield return new WaitForSeconds(_onPointWaiting);
                     direction = -direction;
                 }
                 if (direction.x > 0f && !Physics2D.Raycast(rightOrigin, Vector2.down, maxDistance, layerMask))
                 {
+                    _creature.SetDirection(new Vector3(0,0,0));
+                    yield return new WaitForSeconds(_onPointWaiting);
                     direction = -direction;
                 }
                 _creature.SetDirection(direction.normalized);

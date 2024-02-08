@@ -8,6 +8,7 @@ namespace Scripts.Creatures.Mobs.Patrolling
 
     {
         [SerializeField] private Transform[] _points;
+        [SerializeField] private float _onPointWaiting;
         [SerializeField] private float _treshold = 1f;
         
         private Creature _creature;
@@ -24,6 +25,8 @@ namespace Scripts.Creatures.Mobs.Patrolling
             {
                 if (IsOnPoint())
                 {
+                    _creature.SetDirection(new Vector3(0,0,0));
+                    yield return new WaitForSeconds(_onPointWaiting);
                     _destinationPointIndex = (int) Mathf.Repeat(_destinationPointIndex + 1, _points.Length);
                 }
 

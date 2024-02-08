@@ -10,6 +10,9 @@ namespace Scripts.Components.Health
         [SerializeField] private int _damage;
         [SerializeField] private int _heal;
 
+        public int Damage => _damage;
+        public int Heal => _heal;
+
 
         public void ApplyDamage(GameObject target)
         {

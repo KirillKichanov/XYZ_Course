@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8239735999960545528}
   - component: {fileID: -471057635275337821}
   m_Layer: 0
-  m_Name: ExclamationParticle
+  m_Name: TeleportParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,9 +71,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1334879473
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bfe7ebf10776cce40a40cb23231f45e9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7e50186c4cee8c1428c06c3763eb361a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,11 +101,10 @@ MonoBehaviour:
   - _name: effect
     _loop: 0
     sprites:
-    - {fileID: 21300000, guid: bfe7ebf10776cce40a40cb23231f45e9, type: 3}
-    - {fileID: 21300000, guid: 5862d0ae3df820a4d8cb04e882aa77cb, type: 3}
-    - {fileID: 21300000, guid: 46af4c6e391dc9c49b852ef69c2c4b50, type: 3}
-    - {fileID: 21300000, guid: 8668d4af3ce478f448c5fb5ac3a7233d, type: 3}
-    - {fileID: 21300000, guid: 18d64b1dfeffcee42ae0d0089acdb1c9, type: 3}
+    - {fileID: 21300000, guid: 4f1f39cac391068458094a6e4f328cb6, type: 3}
+    - {fileID: 21300000, guid: 17d158841bf066f44ba149e7e01ed116, type: 3}
+    - {fileID: 21300000, guid: e78354635e131424fa308486e0565f25, type: 3}
+    - {fileID: 21300000, guid: f3b871c0a69536f41a5844da98ab9e34, type: 3}
     _allowNextClip: 0
     _onComplete:
       m_PersistentCalls:
@@ -130,7 +129,7 @@ SortingGroup:
   m_GameObject: {fileID: 2255418160767720505}
   m_Enabled: 1
   m_SortingLayerID: -1334879473
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 0
 --- !u!114 &-471057635275337821
 MonoBehaviour:

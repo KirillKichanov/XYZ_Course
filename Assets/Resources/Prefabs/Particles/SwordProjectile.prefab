@@ -137,7 +137,7 @@ SortingGroup:
   m_GameObject: {fileID: 4615787848076337411}
   m_Enabled: 1
   m_SortingLayerID: -1334879473
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 0
 --- !u!50 &4638178034986809601
 Rigidbody2D:
@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 0.1
+  _invertX: 0
 --- !u!114 &8571318935891748818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,3 +331,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 5899758190495967132}
   _prefab: {fileID: 4615787848076337411, guid: ca2620c20c636f04284d2acf1d515fc9, type: 3}
+  _invertXScale: 0
