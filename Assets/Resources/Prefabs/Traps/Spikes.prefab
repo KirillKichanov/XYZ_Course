@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3119477358823131239}
   - component: {fileID: 812978596718142115}
   - component: {fileID: 1368426625}
+  - component: {fileID: 7241744559264930027}
   m_Layer: 8
   m_Name: Spikes
   m_TagString: Trap
@@ -151,3 +152,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 1
   _heal: 0
+--- !u!210 &7241744559264930027
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5727189598889528823}
+  m_Enabled: 1
+  m_SortingLayerID: 1141187311
+  m_SortingLayer: 4
+  m_SortingOrder: 0

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1989947024}
   - component: {fileID: 1643510300}
   - component: {fileID: 1643510301}
+  - component: {fileID: 3731070243014203938}
   m_Layer: 0
   m_Name: Teleport
   m_TagString: Untagged
@@ -213,3 +214,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!210 &3731070243014203938
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5404870611197574415}
+  m_Enabled: 1
+  m_SortingLayerID: 1141187311
+  m_SortingLayer: 4
+  m_SortingOrder: 0

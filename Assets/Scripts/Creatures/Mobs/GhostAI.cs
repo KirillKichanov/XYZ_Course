@@ -24,13 +24,11 @@ namespace Scripts.Creatures.Mobs
         private Animator _animator;
         private Patrol _patrol;
         private SpawnListComponent _particles;
-        private HealthComponent _healthComponent;
         private GameObject _target;
 
         private bool _isDead;
         private bool _isTeleported;
         private int _destinationPointIndex;
-        private int _currentHealth;
 
         private static readonly int IsDeadKey = Animator.StringToHash("is-dead");
 
@@ -40,7 +38,6 @@ namespace Scripts.Creatures.Mobs
             _animator = GetComponent<Animator>();
             _patrol = GetComponent<Patrol>();
             _particles = GetComponent<SpawnListComponent>();
-            _healthComponent = GetComponent<HealthComponent>();
         }
 
         private void Start()
@@ -51,8 +48,6 @@ namespace Scripts.Creatures.Mobs
 
         private void FixedUpdate()
         {
-            _currentHealth = _healthComponent.Health;
-
             var target = GameObject.Find("Hero");
             if (_canAttack.IsTouchingLayer)
             {
@@ -136,9 +131,9 @@ namespace Scripts.Creatures.Mobs
             StartState(_patrol.DoPatrol());
         }
 
-        public void OnDamage()
+        public void OnHealthChanged(int health)
         {
-            if (_currentHealth <= 1) 
+            if (health <= 1) 
                 return;
             Teleport();
         }
