@@ -5288,7 +5288,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4272878728320302108}
   - component: {fileID: 5418857513320694869}
-  - component: {fileID: 7793176379474523501}
   m_Layer: 9
   m_Name: Vfx
   m_TagString: Untagged
@@ -5407,14 +5406,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!81 &7793176379474523501
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4392743348212695839}
-  m_Enabled: 1
 --- !u!1 &5485157021196711046
 GameObject:
   m_ObjectHideFlags: 0

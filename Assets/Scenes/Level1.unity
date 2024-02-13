@@ -6436,10 +6436,10 @@ GameObject:
   m_Component:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
-  - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
+  - component: {fileID: 519420029}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -16733,7 +16733,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7793176379474523501, guid: a06303fba0901014f8d422ec71a9f07d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a06303fba0901014f8d422ec71a9f07d, type: 3}
 --- !u!4 &2075929794 stripped
 Transform:
