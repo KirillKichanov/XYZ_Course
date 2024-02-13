@@ -11615,6 +11615,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FinalTeleport
       objectReference: {fileID: 0}
+    - target: {fileID: 7375169014597197064, guid: cce81e0ecbb8e7b46bbdb993079c0c60,
+        type: 3}
+      propertyPath: _sceneName
+      value: Level3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cce81e0ecbb8e7b46bbdb993079c0c60, type: 3}
 --- !u!1001 &1007411416
@@ -19103,9 +19108,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data:
-    Coins: 0
+    _inventory:
+      _inventory: []
     Hp: 10
-    isArmed: 1
 --- !u!1001 &1883511437
 PrefabInstance:
   m_ObjectHideFlags: 0

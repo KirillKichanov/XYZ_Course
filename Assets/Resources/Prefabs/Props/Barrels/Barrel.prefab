@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2089977213728972454}
   - component: {fileID: 2089977213728972452}
   - component: {fileID: 2089977213728972453}
+  - component: {fileID: 9131381887596550230}
   m_Layer: 8
   m_Name: Barrel
   m_TagString: Props
@@ -130,3 +131,14 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!210 &9131381887596550230
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089977213728972449}
+  m_Enabled: 1
+  m_SortingLayerID: 1141187311
+  m_SortingLayer: 4
+  m_SortingOrder: 0
