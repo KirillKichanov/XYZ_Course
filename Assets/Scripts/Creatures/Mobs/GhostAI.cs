@@ -80,19 +80,15 @@ namespace Scripts.Creatures.Mobs
 
         public void Teleport()
         {
-            if (_current != null)
-                StopCoroutine(_current);
-            
+            _creature.SetDirection(new Vector3(0, 0, 0));
+ 
             var particles = GameObject.Find("TeleportParticles");
-            //if (particles != null) return;
             _particles.Spawn("teleport");
 
             foreach (var sprite in gameObject.GetComponentsInChildren<SpriteRenderer>())
             {
                 sprite.color = new Color(1, 1, 1, 0);
             }
-
-            _creature.SetDirection(new Vector3(0, 0, 0));
 
             var hero = GameObject.Find("Hero");
             var distance = 0f;
@@ -116,7 +112,9 @@ namespace Scripts.Creatures.Mobs
 
         private IEnumerator AfterTeleportWaiting()
         {
+            _creature.SetDirection(new Vector3(0, 0, 0));
             yield return new WaitForSeconds(0.3f);
+            
             _particles.Spawn("teleport");
             yield return new WaitForSeconds(0.3f);
 
