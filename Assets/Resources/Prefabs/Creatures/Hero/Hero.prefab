@@ -5861,7 +5861,7 @@ MonoBehaviour:
   _onDie:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 641379974}
         m_MethodName: Reload
         m_Mode: 1
         m_Arguments:

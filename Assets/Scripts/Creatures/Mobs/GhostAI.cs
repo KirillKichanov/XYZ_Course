@@ -80,11 +80,12 @@ namespace Scripts.Creatures.Mobs
 
         public void Teleport()
         {
+            if (_current != null)
+                StopCoroutine(_current);
+            
             var particles = GameObject.Find("TeleportParticles");
-            if (particles != null) return;
+            //if (particles != null) return;
             _particles.Spawn("teleport");
-
-            StopCoroutine(_current);
 
             foreach (var sprite in gameObject.GetComponentsInChildren<SpriteRenderer>())
             {
