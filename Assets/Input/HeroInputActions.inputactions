@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "e3fbca71-3d8c-440f-b0ec-9b13f11e3efc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -142,12 +151,23 @@
                 },
                 {
                     "name": "",
+                    "id": "9eaa7d09-3402-4d50-9886-a36f0c5bd9c2",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "24b23bf9-f5a7-4d08-844b-e223140c7962",
                     "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Healing",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

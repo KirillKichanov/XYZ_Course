@@ -10,6 +10,7 @@ TagManager:
   - Trap
   - Enemy
   - Interactable
+  - Pause
   layers:
   - Default
   - TransparentFX
