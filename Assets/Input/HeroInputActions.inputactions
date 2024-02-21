@@ -167,7 +167,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pause",
+                    "action": "Healing",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
